@@ -54,7 +54,7 @@ h3 {
     width: 200px;
     text-transform: uppercase;
     text-align: center;
-    text-shadow: 0px 1px 2px #ffffff;
+    text-shadow: 0 1px 2px #ffffff;
 }
 
 .mainMenu a {
@@ -66,7 +66,7 @@ h3 {
 [class="mainMenu"] li:hover {
     transition: 0.5s;
     transform: scale(1.2);
-    text-shadow: 0px 20px 2px #ffffff;
+    text-shadow: 0 20px 2px #ffffff;
 }
 
 .sectionAnimation {
@@ -164,7 +164,7 @@ fieldset {
 
 :checked {
     background-color: #003a30;
-    box-shadow: 0px 0px 5px 1px #858831;
+    box-shadow: 0px 0px 5px 1px #858831;/* TODO: remove px after 0 */
 }
 
 textarea::placeholder {
