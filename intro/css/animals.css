@@ -103,12 +103,12 @@ body {
     height: 120px;
     border-radius: 20px 70px 0 40px;
     font-size: 18px;
-    font-family: teddy_font;
+    font-family: teddy_font, serif;
 }
 
 #reed {
     font-size: 25px;
-    font-family: arkhip_font;
+    font-family: arkhip_font, serif;
     color: #30d2ba;
     letter-spacing: 5px;
     text-shadow: 1px 1px 2px #ff0000;
@@ -136,7 +136,7 @@ body {
 }
 
 h3 {
-    font-family: arkhip_font;
+    font-family: arkhip_font, serif;
     color: #daad86;
     text-shadow: 2px 2px 2px #000000;
     margin-left: 10px;
@@ -194,7 +194,7 @@ legend {
 }
 
 :checked {
-    box-shadow: 0px 0px 7px 1px #D2691EFF;
+    box-shadow:0 0 7px 1px #D2691EFF;
     background-color: #e27d60;
 }
 
@@ -266,7 +266,7 @@ button:not([type]) {
     height: 30px;
     width: 150px;
     margin: 10px 5px;
-    box-shadow: inset 3px 2px 5px 0px #ff0000, 4px 3px 5px 0px #17d3c1;
+    box-shadow: inset 3px 2px 5px 0 #ff0000, 4px 3px 5px 0 #17d3c1;
 }
 
 [type="reset"] + button {
