@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(85deg, #9ec7ab, #046e5c);
+    overflow: hidden;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 45px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffe200;
+    text-shadow: 3px 4px 6px #000000;
+}
+
+h2 {
+    font-size: 20px;
+    color: #d9b428;
+    background-color: rgb(104, 124, 124);
+    width: 170px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    padding: 15px;
+    border-radius: 0 50% 0 0;
+    animation: padd 2s linear 1 reverse;
+    transform: scale(0.8);
+}
+
+@keyframes padd {
+    0% {
+        width: 170px;
+
+    }
+
+    100% {
+        width: 100%;
+        transform: scale(1.3);
+    }
+}
+
+.paragraph {
+    text-align: center;
+    font-family: "arkhip_font", serif;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+fieldset {
+    display: inline-block;
+    background-image: url("../img/background-1.jpg");
+    background-size: cover;
+}
+
+img {
+    width: 200px;
+}
+
+img:hover {
+    border-radius: 15px;
+    transition: 1s;
+    transform: scale(1.1);
+}
+
+.mainMenu {
+    background-image: linear-gradient(45deg, #ffffff, #3dbd20);
+    width: 100%;
+    border-radius: 10px;
+}
+
+.mainMenu li {
+    list-style: none;
+    padding: 10px 15px;
+    width: 40%;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.mainMenu a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #659ebc;
+    text-shadow: 1px 1px 1px #000000;
+}
+
+.mainMenu li:hover {
+    transition: 0.8s;
+    transform: scale(1.3);
+}
+
+li:hover::before {
+    content: ">>";
+    margin-right: 10px;
+}
+
+li:hover::after {
+    content: "<<";
+    margin-left: 10px;
+}
+
+.main_flower {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 250px;
+}
+
+@font-face {
+    font-family: "arkhip_font";
+    src: url("../fonts/d9464-arkhip_font.ttf");
+}

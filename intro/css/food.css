@@ -1,0 +1,233 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(90deg, #99b4c9, #928f8c);
+    overflow: auto;
+}
+
+h1 {
+    font-family: serif;
+    font-size: 45px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #afd274;
+    text-shadow: 3px 4px 6px #000000;
+}
+
+h2 {
+    font-family: teddy_font, serif;
+    text-align: center;
+    color: #a2e7db;
+    font-size: 30px;
+    letter-spacing: 4px;
+}
+
+h3 {
+    font-family: sans-serif;
+    font-size: 20px;
+    font-style: italic;
+    color: #e97b84;
+    text-shadow: 1px 1px 5px #000000;
+    text-transform: uppercase;
+}
+
+.mainMenu {
+    background-image: url("../img/background-5.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 70px;
+    border-radius: 10px;
+}
+
+.mainMenu ul {
+    display: flex;
+    padding: 0;
+    justify-content: center;
+}
+
+.mainMenu li {
+    list-style: none;
+    padding: 10px 15px;
+    width: 200px;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 0px 1px 2px #ffffff;
+}
+
+.mainMenu a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #000000;
+}
+
+[class="mainMenu"] li:hover {
+    transition: 0.5s;
+    transform: scale(1.2);
+    text-shadow: 0px 20px 2px #ffffff;
+}
+
+.sectionAnimation {
+    display: flex;
+    justify-content: center;
+}
+
+.donatAnimationMain {
+    position: relative;
+    height: 100%;
+    width: 85%;
+    overflow: hidden;
+    border: rgba(0, 0, 0, 0.77) solid 2px;
+    /*padding: 50px;*/
+}
+
+.donatAnimation {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    background-image: url("../img/animation/donut_PNG.png");
+    background-size: cover;
+    transition-property: all;
+    animation-name: donatAnimation;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.donatAnimation.one1 {
+    animation-delay: 2s;
+}
+
+.donatAnimation.one2 {
+    animation-delay: 4s;
+}
+
+.donatAnimation.one3 {
+    animation-delay: 6s;
+}
+
+@keyframes donatAnimation {
+    0% {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: rotate(0deg);
+    }
+
+    25% {
+        top: 90%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: rotate(90deg);
+    }
+
+    50% {
+        top: 90%;
+        left: 95%;
+        right: 0;
+        bottom: 0;
+        transform: rotate(180deg);
+    }
+
+    75% {
+        top: 0;
+        left: 95%;
+        right: 0;
+        bottom: 0;
+        transform: rotate(270deg);
+    }
+
+    100% {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: rotate(360deg);
+    }
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
+fieldset {
+    background-image: linear-gradient(165deg, #bd2626, #ffffff);
+    border-radius: 10px;
+    width: 90%;
+    margin: 50px;
+}
+
+:checked {
+    background-color: #003a30;
+    box-shadow: 0px 0px 5px 1px #858831;
+}
+
+textarea::placeholder {
+    color: #e7717d;
+}
+
+.input:focus {
+    background-color: #96caef;
+}
+
+.tableContainer {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    text-align: center;
+    border-collapse: collapse;
+    width: 90%;
+    cursor: pointer;
+}
+
+td:hover {
+    transition: 1s;
+    transform: scale(1.05);
+    border-radius: 20px;
+}
+
+td:first-child {
+    background-color: rgba(175, 210, 116, 0.7);
+}
+
+td:last-child {
+    background-color: rgba(227, 192, 53, 0.7);
+}
+
+img {
+    margin: 20px;
+    width: 400px;
+    border-radius: 10px;
+}
+
+img:hover {
+    transition: 1s;
+    border-radius: 30px;
+}
+
+ul {
+    font-family: arkhip_font, monospace;
+    margin-left: 20px;
+}
+
+li {
+    list-style-type: upper-roman;
+    margin-bottom: 5px;
+}
+
+@font-face {
+    font-family: "teddy_font";
+    src: url("../fonts/teddy-bear.ttf");
+}
+
+@font-face {
+    font-family: "arkhip_font";
+    src: url("../fonts/d9464-arkhip_font.ttf");
+}

@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif, serif;
+}
+
+.productsMain {
+    margin: 50px auto;
+}
+
+.products {
+    float: left;
+    width: 100%;
+    padding-bottom: 64px;
+}
+
+h2 {
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.products_item::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.productItem {
+    padding: 16px;
+    height: 320px;
+    position: relative;
+    float: left;
+    border-right: 1px solid #e9e9e9;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.productWishList {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border: none;
+    background-color: #ffffff;
+    border-radius: 4px;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 4px;
+    background-image: url("../img/rozetka_img/wish.svg");
+    background-size: 21px 21px;
+    background-repeat: no-repeat;
+    background-position: 6px 6px;
+    cursor: pointer;
+}
+
+.productWishList:hover {
+    background-color: #f4faf6;
+}
+
+.productImage {
+    position: relative;
+    display: block;
+    height: 170px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.productImage img {
+    max-width: 100%;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 140px;
+    vertical-align: middle;
+}
+
+.productTitle {
+    text-decoration: none;
+    display: block;
+    height: 33px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    font-size: 14px;
+    color: #333333;
+    max-width: 152px;
+}
+
+.productTitle:hover {
+    color: #f84147;
+    text-decoration: underline;
+}
+
+.productPrice {
+    font-size: 24px;
+    color: #f84147;
+}
+
+.productOldPrice {
+    display: inline-block;
+    font-size: 14px;
+    text-decoration: line-through;
+    color: #a6a5a5;
+}
+
+.productEnds {
+    color: #ff5c00;
+    margin: 5px 0;
+    font-size: 12px;
+}
+
+@media screen and (max-width: 970px) {
+    .productItem {
+        width: 50%;
+    }
+
+    .productItem.display ~ .productItem {
+        display: none;
+    }
+}

@@ -1,0 +1,267 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(160deg, #2260ec, #a23104);
+    overflow: auto;
+}
+
+h1 {
+    font-family: arkhip_font, sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fc4444;
+    text-shadow: 3px 4px 6px #000000;
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+h3 {
+    font-family: arkhip_font, sans-serif;
+    font-size: 20px;
+    font-style: italic;
+    color: #197562;
+    text-shadow: 1px 2px 4px #000000;
+    margin-left: 15px;
+}
+
+h3::first-letter {
+    font-size: 25px;
+    color: #e27d60;
+}
+
+.cologne {
+    background-image: url("../img/cologne 550 500.jpg");
+    background-size: 118px;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 86%;
+    right: -93%;
+    height: 100%;
+    width: 100%;
+    border-radius: 60px;
+    z-index: 1;
+}
+
+.rowUp {
+    position: fixed;
+    top: 90%;
+    right: -96%;
+    font-size: 40px;
+    width: 100%;
+    z-index: 2;
+}
+
+.mainMenu {
+    background-image: linear-gradient(45deg, #bd2626, #ffffff);
+    width: 100%;
+    height: 40px;
+}
+
+.mainMenu ul {
+    display: flex;
+    padding: 0;
+    justify-content: center;
+}
+
+.mainMenu li {
+    list-style: none;
+    padding: 10px 15px;
+    width: 170px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.mainMenu a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #044b6b;
+    text-shadow: 1px 1px 1px #000000;
+}
+
+.mainMenu li:hover {
+    transition: 0.5s;
+    transform: scale(1.2);
+}
+
+.mainP {
+    font-family: "arkhip_font", monospace;
+    text-align: center;
+}
+
+.secondLine {
+    position: relative;
+    top: 20px;
+    right: -50%;
+    transform: rotate(2deg);
+    padding: 0 25px;
+    background-color: #55bdca;
+    width: 40%;
+    border-radius: 20px;
+    font-size: 18px;
+}
+
+.secondLine i:hover {
+    text-decoration: underline;
+    color: #e27d60;
+}
+
+table {
+    background-color: #fbeec1;
+    text-align: center;
+    border-spacing: 10px;
+    width: 100%;
+    box-shadow: inset 1px 1px 20px 2px #51e8d0;
+    cursor: pointer;
+}
+
+th,
+td {
+    border: #000000 solid 2px;
+    padding: 10px;
+}
+
+th:hover,
+td:hover {
+    transform: rotate(1deg);
+}
+
+td:first-child {
+    background-color: #b9a32a;
+}
+
+td:last-child {
+    background-color: #53912d;
+}
+
+th:nth-child(1) {
+    background-color: #53912DFF;
+}
+
+th:last-child {
+    background-color: #B9A32AFF;
+}
+
+[class="Container"] {
+    display: flex;
+    justify-content: center;
+    margin: 0 25px;
+}
+
+.textForImg {
+    margin: 20px;
+    font-family: monospace;
+    font-size: 14px;
+    letter-spacing: -1px;
+}
+
+img {
+    margin: 20px;
+    width: 400px;
+    border-radius: 0 20px 0 20px;
+    animation: img 4s linear infinite;
+}
+
+img:hover {
+    transition: 1s;
+    opacity: 1;
+    border-radius: 40px;
+}
+
+@keyframes img {
+    0% {
+        opacity: 0.3;
+        transform: translateY(-1px);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(5px);
+    }
+
+    100% {
+        opacity: 0.3;
+        transform: translateY(-1px);
+    }
+}
+
+ul {
+    font-family: courier, monospace;
+    margin-left: 20px;
+}
+
+li {
+    list-style-type: square;
+    color: #318877;
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+}
+
+[id="h4"] {
+    list-style-type: none;
+    color: black;
+}
+
+.break-all {
+    word-break: break-all;
+    outline: 1px solid rgba(0, 0, 0, 0.27);
+}
+
+.break_word {
+    word-break: break-word;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset {
+    margin-bottom: 10px;
+    background-color: rgba(226, 125, 96, 0.37);
+    border-radius: 10px;
+    width: 50%;
+}
+
+:checked {
+    box-shadow: 0px 0px 7px 1px #318877;
+}
+
+:disabled {
+    background-color: #5e5757;
+}
+
+textarea::placeholder {
+    color: #318877FF;
+}
+
+.input:focus {
+    background-color: #96caef;
+    width: 80%;
+}
+
+dt {
+    font-family: monospace;
+    font-size: 20px;
+    text-align: right;
+    color: #3f7694;
+    text-shadow: 1px 1px 5px #000000;
+}
+
+@font-face {
+    font-family: "teddy_font";
+    src: url("../fonts/teddy-bear.ttf");
+}
+
+@font-face {
+    font-family: "arkhip_font";
+    src: url("../fonts/d9464-arkhip_font.ttf");
+}
