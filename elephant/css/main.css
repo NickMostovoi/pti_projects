@@ -184,6 +184,10 @@ ul {
     text-decoration: underline;
 }
 
+ul a:hover {
+    text-decoration: rgba(0, 0, 0, 0);
+}
+
 ul a {
     color: #6a684d;
 }
