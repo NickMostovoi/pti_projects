@@ -4,3 +4,272 @@
     font: 11px Tahoma, sans-serif;
     font: 14px "Times New Roman", serif;
 */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e7e5c8;
+    position: relative;
+    margin: auto;
+}
+
+.mainHeader {
+    width: 705px;
+    height: 88px;
+    border-bottom: 1px solid #c0bd9a;
+    margin: 0 auto;
+    position: relative;
+}
+
+.logoImg {
+    float: left;
+    margin: 25px 22px;
+}
+
+.contacts {
+    float: right;
+    background-image: url(../images/phone.png);
+    background-repeat: no-repeat;
+    width: 275px;
+    height: 88px;
+    position: absolute;
+    top: 1px;
+    left: 460px;
+}
+
+.contactsText {
+    font: 11px Tahoma, sans-serif;
+    font-weight: bold;
+    color: #f4f9f2;
+    position: relative;
+    top: 25px;
+    left: 110px;
+}
+
+.number {
+    margin-left: 10px;
+}
+
+/*********************************************************************** main*/
+.mainContainer {
+    width: 705px;
+    min-height: 330px;
+    border-top: 1px solid #f1f0e0;
+    margin: 0 auto;
+    position: relative;
+}
+
+.mainImg {
+    padding-top: 35px;
+    padding-bottom: 32px;
+    float: left;
+    width: 50%;
+}
+
+.mainText {
+    float: left;
+    width: 50%;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-left: 88px;
+    font: 14px "Times New Roman", serif;
+    font-weight: bold;
+    color: #6e6b3d;
+}
+
+.mainText p {
+    font: 11px Tahoma, sans-serif;
+    margin-left: 50px;
+    color: #969473;
+}
+
+.borderForSecondLine {
+    margin: 0 auto;
+    width: 705px;
+    border-top: 1px solid #c0bd9a;
+    border-bottom: 1px solid #f1f0e0;
+    float: left;
+}
+
+/********************************************************* section*/
+.mainSection {
+    width: 705px;
+    min-height: 180px;
+    margin: 2px auto 0;
+    position: relative;
+    background-color: #dedbbb;
+    border-radius: 3px;
+    float: left;
+}
+
+.itemContainers_1 {
+    float: left;
+    width: 242px;
+    position: relative;
+}
+
+.itemContainers_2 {
+    float: left;
+    width: 242px;
+    position: relative;
+}
+
+.itemContainers_3 {
+    float: left;
+    position: relative;
+}
+
+.itemContainers_2,
+.itemContainers_3 p {
+    font: 11px Tahoma, sans-serif;
+}
+
+.line {
+    height: 164px;
+    border-right: 1px solid #c0bd9a;
+    border-left: 1px solid #f1f0e0;;
+    float: left;
+    margin-top: 10px;
+}
+
+h2 {
+    margin: 10px 16px;
+    font: 14px "Times New Roman", serif;
+    color: #6e6b3d;
+    font-weight: bold;
+}
+
+.containerForSection {
+    margin: 0 15px;
+    float: left;
+}
+
+.border {
+    border-radius: 3px;
+    width: 95px;
+    height: 54px;
+    background-color: #b7b192;
+    float: left;
+    margin: 4px 2px;
+}
+
+.imgRoom {
+    margin: 3px;
+    border-radius: 3px;
+}
+
+.borderOfferImg {
+    border-radius: 3px;
+    width: 211px;
+    height: 55px;
+    background-color: #b7b192;
+    float: left;
+    margin: 4px 0 15px;
+}
+
+.ourOfferImg {
+    margin: 3px;
+    border-radius: 3px;
+}
+
+ul {
+    list-style-image: url("../images/dot.gif");
+    font: 11px Tahoma, sans-serif;
+    list-style-position: inside;
+    padding-left: 0;
+    text-decoration: underline;
+}
+
+ul a {
+    color: #6a684d;
+}
+
+.nextP {
+    margin-left: 9px;
+}
+
+.ourOffPar {
+    width: 134px;
+    margin: 3px 0;
+}
+
+.elephantImg {
+    background-image: url("../images/elephant.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 145px;
+    position: absolute;
+    top: 30px;
+    left: 135px;
+}
+
+/************************************************************ footer */
+.mainFooter {
+    width: 705px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    float: left;
+}
+
+.welcome {
+    background-image: url("../images/welcome.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 75px;
+    position: relative;
+    top: 20px;
+    left: 10px;
+}
+
+.mapContacts {
+    background-image: url(../images/map.jpg);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 10px;
+    left: 440px;
+}
+
+.mapText {
+    position: relative;
+    top: 0;
+    left: 54px;
+}
+
+.address {
+    margin-left: 10px;
+    font: 11px Tahoma, sans-serif;
+    color: #969473;
+}
+
+/*----------------------------------------------------- for all*/
+.firstLetter {
+    font-weight: bold;
+    color: #90aa1f;
+}
+
+.links {
+    color: #90aa1f;
+}
+
+.links:hover {
+    text-decoration: none;
+}
+
+.ipsum {
+    color: #6e6b3d;
+    font-weight: bold;
+}
+
+.colorP {
+    color: #888665;
+}
+
+.colorLastSec {
+    color: #6a684d;
+}
