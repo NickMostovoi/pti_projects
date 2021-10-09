@@ -83,7 +83,7 @@ h1 {
 
 .mainText p {
     font: 11px Tahoma, sans-serif;
-    margin-left: 50px;
+    margin-left: 50px;/* TODO: давай родителю padding-left */
     color: #969473;
 }
 
@@ -96,7 +96,7 @@ h1 {
 }
 
 /********************************************************* section*/
-.mainSection {
+.asideSection {
     width: 705px;
     min-height: 180px;
     margin: 2px auto 0;
