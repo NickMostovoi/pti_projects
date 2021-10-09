@@ -365,7 +365,7 @@ dd {
     z-index: 2;
 }
 
-.car img {
+.theCar {
     width: 100%;
     animation: car 1s linear infinite;
 }
@@ -382,7 +382,7 @@ dd {
     }
 }
 
-.wheel img {
+.wheel {
     width: 62px;
     height: 62px;
     animation: wheel 1s linear infinite;
