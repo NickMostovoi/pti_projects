@@ -1,11 +1,13 @@
 ﻿* {
     box-sizing: border-box;
-    font-family: Verdana;
+    font-family: Verdana, serif;
 }
 
 body {
     margin: 0;
 }
+
+/* --------------------------------------------- Header */
 
 .header {
     background-color: #ececec;
@@ -84,7 +86,7 @@ body {
 .logIn {
     display: inline-block;
     font-weight: bold;
-    background-image: url(/job_fair/images/1.gif);
+    background-image: url(../images/1.gif);
     width: 100px;
     height: 37px;
     margin-right: 10px;
@@ -100,7 +102,7 @@ body {
 .registration {
     display: inline-block;
     font-weight: bold;
-    background-image: url("/job_fair/images/2.gif");
+    background-image: url("../images/2.gif");
     width: 166px;
     height: 36px;
 }
@@ -148,16 +150,23 @@ body {
     background-color: #74b8d2;
 }
 
+.page {
+    width: 1010px;
+    margin: 0 auto;
+    background: #043a4f;
+    padding: 7px;
+}
+
+/* --------------------------------------------- Module: Banner */
+
 .newsPage {
     background-color: #1f617a;
-    margin: auto;
-    border: 7px solid #043a4f;
-    width: 1010px;
     height: 195px;
     font-size: 12px;
     padding: 0 120px 0 45px;
     color: #ffffff;
     position: relative;
+    margin-bottom: 7px;
 }
 
 .newsPage h2 {
@@ -166,11 +175,14 @@ body {
     margin: 15px 0;
 }
 
-.mainInformationPage {
-    border: 7px solid #043a4f;
-    margin: -7px auto 0;
-    width: 1010px;
-    height: 715px;
+.banner {
+    position: relative;
+}
+
+.pagination {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .numberOfArticles div {
@@ -252,6 +264,15 @@ body {
     border: 6px solid transparent;
     border-top: 7px solid #ffffff;
 }
+
+/* --------------------------------------------- Module: XXX */
+
+.mainInformationPage {/* TODO: скругление */
+    height: 530px;
+    background: #fff;
+}
+
+/* --------------------------------------------- Footer */
 
 .footer {
     margin: auto;
