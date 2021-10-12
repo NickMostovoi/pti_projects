@@ -15,12 +15,12 @@ body {
     margin: auto;
     height: 27px;
     width: 1010px;
-    font-size: 10px;
+    font-size: 11px;
     line-height: 25px;
 }
 
 .header .listHeader a {
-    margin-right: 24px;
+    margin-right: 13px;
     color: #676767;
 }
 
