@@ -5,7 +5,7 @@
 body {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
     margin: 0;
     background-image: url("../images/background.gif");
     font-family: Verdana, sans-serif;
@@ -64,9 +64,8 @@ body {
 }
 
 /*--------------------------------------------------------- main */
-.main {/* TODO: футер прижать к низу как в примере в папке _design */
+.main {
     width: 719px;
-    min-height: 964px; /* 840 without banner */
     flex-grow: 1;
     margin: auto;
     background-color: #000;
@@ -147,16 +146,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /*position: relative;*/
 }
 
 .footer a {
     color: #fff;
     text-decoration: none;
     margin-right: 5px;
-    /*position: absolute;*/
-    /*bottom: 0;*/
-    /*right: 0;*/
 }
 
 .footer a:hover {
