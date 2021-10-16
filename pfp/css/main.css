@@ -64,7 +64,7 @@ body {
 }
 
 /*--------------------------------------------------------- main */
-.main {
+.main {/* TODO: футер прижать к низу как в примере в папке _design */
     width: 719px;
     min-height: 964px; /* 840 without banner */
     flex-grow: 1;
@@ -96,18 +96,11 @@ body {
 }
 
 /*--------------------------------------------------------- banner */
-.banner {
+.content {
     font-family: Tahoma, sans-serif;
-    display: flex;
     color: #fff;
     font-size: 12px;
-    padding-right: 22px;
-}
-
-.banner img {
-    margin: 4px 15px;
-    width: 328px;
-    height: 181px;
+    padding: 0 22px 0 15px;
 }
 
 .content p {
