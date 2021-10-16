@@ -7,8 +7,11 @@ body {
     margin: 0;
 }
 
-/* --------------------------------------------- Header */
+button {
+    cursor: pointer;
+}
 
+/* --------------------------------------------- Header */
 .header {
     background-color: #ececec;
 }
@@ -39,6 +42,7 @@ body {
 .headerContainer {
     margin: auto;
     width: 1010px;
+    position: relative;
 }
 
 .headerContainer a {
@@ -65,53 +69,46 @@ body {
     top: 10px;
 }
 
-.newsBar::before {
-    content: "";
+.newsBar .btnPrevious {
     position: absolute;
     top: 4px;
     left: -2px;
+    background-color: transparent;
     border: 6px solid transparent;
     border-right: 6px solid #ffffff;
+    padding: 0;
 }
 
-.newsBar::after {
-    content: "";
+.newsBar .btnNext {
     position: absolute;
     top: 4px;
     left: 355px;
+    background-color: transparent;
     border: 6px solid transparent;
     border-left: 6px solid #ffffff;
+    padding: 0;
 }
 
 .logIn {
-    display: inline-block;
+    position: absolute;
+    top: 18px;
     font-weight: bold;
     background-image: url(../images/1.gif);
     width: 100px;
     height: 37px;
-    margin-right: 10px;
-}
-
-.logIn .logInText {
-    position: relative;
-    top: 10px;
-    left: 45px;
-    font-size: 12px;
+    padding: 10px 0 0 45px;
 }
 
 .registration {
+    position: absolute;
+    top: 18px;
+    right: 18px;
     display: inline-block;
     font-weight: bold;
     background-image: url("../images/2.gif");
     width: 166px;
     height: 36px;
-}
-
-.registration .registrationText {
-    position: relative;
-    top: 10px;
-    left: 60px;
-    font-size: 12px;
+    padding: 10px 0 0 67px;
 }
 
 .mainHeader .menu {
@@ -119,7 +116,7 @@ body {
     width: 1010px;
 }
 
-.mainHeader .menu div {
+.mainHeader .menu a {
     display: inline-block;
     background-color: #0b6588;
     width: 128px;
@@ -128,135 +125,125 @@ body {
     text-align: center;
     padding-top: 8px;
     font-size: 12px;
-}
-
-.mainHeader .menu a {
     text-decoration: none;
     font-weight: bold;
     color: #ffffff;
 }
 
-.mainHeader .menu div:first-child {
+.mainHeader .menu a:first-child {
     background-color: #043a4f;
 }
 
-.mainHeader .menu div:nth-child(6) {
+.mainHeader .menu a:nth-child(6) {
     background-color: #89c160;
+    width: 142px;
 }
 
-.mainHeader .menu div:last-child {
+.mainHeader .menu a:last-child {
     width: 90px;
     margin-left: 55px;
     background-color: #74b8d2;
 }
 
+/* --------------------------------------------- Module: Banner */
 .page {
     width: 1010px;
     margin: 0 auto;
     background: #043a4f;
     padding: 7px;
-}
-
-/* --------------------------------------------- Module: Banner */
-
-.newsPage {
-    background-color: #1f617a;
-    height: 195px;
-    font-size: 12px;
-    padding: 0 120px 0 45px;
-    color: #ffffff;
-    position: relative;
-    margin-bottom: 7px;
-}
-
-.newsPage h2 {
-    font-family: "Times New Roman";
-    font-size: 24px;
-    margin: 15px 0;
+    border-radius: 0 0 5px 5px;
 }
 
 .banner {
     position: relative;
+    background-color: #1f617a;
+    height: 180px;
+    font-size: 12px;
+    padding: 0 120px 0 45px;
+    color: #ffffff;
+    margin-bottom: 7px;
+    border-radius: 5px;
+}
+
+.banner h2 {
+    font-family: "Times New Roman", serif;
+    font-size: 24px;
+    margin: 0;
+    padding-top: 15px;
 }
 
 .pagination {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 15px;
+    right: 117px;
 }
 
-.numberOfArticles div {
-    position: relative;
-    top: -152px;
-    left: 671px;
+.pagination button {
+    color: #ffffff;
     background-color: #218fbb;
-    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    margin-right: 3px;
     width: 25px;
     height: 25px;
-    margin-right: 2px;
-    border-radius: 5px;
-    text-align: center;
-    padding-top: 5px;
-    font-weight: bold;
-    cursor: pointer;
 }
 
-.numberOfArticles div:first-child {
+.pagination button:first-child {
     background-color: #2fbaf1;
 }
 
-.arrowBeforeNews {
+.banner .btnPrevious {
     position: absolute;
-    bottom: 10px;
+    bottom: 8px;
     left: 10px;
     background-color: #218fbb;
     width: 25px;
     height: 25px;
     border-radius: 5px;
-    cursor: pointer;
+    border: none;
 }
 
-.arrowBeforeNews::before {
+.banner .btnPrevious::before {
     content: "";
     position: absolute;
-    bottom: 3px;
+    bottom: 2px;
     left: -5px;
     border: 10px solid transparent;
     border-right: 15px solid #ffffff;
 }
 
-.arrowNextNews {
+.banner .btnNext {
     position: absolute;
     right: 10px;
-    bottom: 10px;
+    bottom: 8px;
     background-color: #218fbb;
     width: 25px;
     height: 25px;
     border-radius: 5px;
-    cursor: pointer;
+    border: none;
 }
 
-.arrowNextNews::before {
+.banner .btnNext::before {
     content: "";
     position: absolute;
-    bottom: 3px;
+    bottom: 2px;
     right: -5px;
     border: 10px solid transparent;
     border-left: 15px solid #ffffff;
 }
 
-.closeBottom {
+.banner .btnToggler {
     position: absolute;
-    right: -1px;
-    top: -20px;
+    right: 0;
+    top: -17px;
     background-color: #1f617a;
     width: 25px;
     height: 25px;
     border-radius: 5px;
-    cursor: pointer;
+    border: none;
 }
 
-.newsPage .closeBottom::after {
+.banner .btnToggler::before {
     content: "";
     position: absolute;
     right: 7px;
@@ -265,15 +252,14 @@ body {
     border-top: 7px solid #ffffff;
 }
 
-/* --------------------------------------------- Module: XXX */
-
-.mainInformationPage {/* TODO: скругление */
-    height: 530px;
+/* --------------------------------------------- Module: InformationPage */
+.mainInformationPage {
+    height: 510px;
     background: #fff;
+    border-radius: 5px;
 }
 
 /* --------------------------------------------- Footer */
-
 .footer {
     margin: auto;
     height: 35px;
