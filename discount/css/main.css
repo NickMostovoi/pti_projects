@@ -1,17 +1,16 @@
-﻿* {
+* {
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
+    padding: 0
 }
 
-html,
-body {
-    height: 100%;
+html, body {
+    height: 100%
 }
 
 body {
     font-family: Arial, sans-serif;
-    background: #473B38;
+    background: #473B38
 }
 
 .page {
@@ -19,22 +18,235 @@ body {
     margin: 0 auto;
     min-height: 100%;
     padding-bottom: 120px;
-    position: relative;
+    position: relative
 }
 
-/* ---------------------------------------- Content */
+.page .header {
+    height: 100px;
+    border-bottom: 1px solid #6A5455
+}
 
-/*
-    Для голубых заголовков
+.page .header img {
+    margin: 20px 0
+}
+
+.page .header .menu {
+    position: absolute;
+    top: 70px;
+    right: 0
+}
+
+.page .header .menu a {
+    font-size: 12px;
+    margin-left: 20px;
+    text-decoration: none;
+    color: #decacb
+}
+
+.page .header .menu a:hover {
+    text-decoration: underline
+}
+
+.page .header .menu .active {
+    border-top: 10px solid #594546
+}
+
+.page .promotionBanner {
+    width: 400px;
+    height: 140px;
+    padding-left: 100px;
+    background-color: #594546;
+    position: absolute;
+    left: -120px;
+    top: 130px;
+    border: 1px solid #6A5455;
+    color: #decacb
+}
+
+.page .promotionBanner h2 {
+    font-size: 20px;
+    margin: 20px 0 10px
+}
+
+.page .promotionBanner h2 b {
+    font-size: 28px
+}
+
+.page .promotionBanner p {
+    font-size: 14px
+}
+
+@media (max-width: 1200px) {
+    .page .promotionBanner {
+        width: 280px;
+        height: 140px;
+        padding-left: 10px;
+        background-color: #594546;
+        position: absolute;
+        top: 130px;
+        left: 0;
+        border: 1px solid #6A5455;
+        color: #decacb
+    }
+}
+
+.page .cooperationBanner {
+    width: 280px;
+    height: 380px;
+    background-color: #3c322f;
+    position: absolute;
+    top: 300px;
+    border-radius: 5px;
+    padding: 10px
+}
+
+.page .cooperationBanner p {
+    font-size: 12px;
+    color: #7d696a;
+    margin: 24px 0 8px;
+    line-height: 20px
+}
+
+.page .cooperationBanner p:nth-child(2) {
+    color: #fff;
+    font-style: italic;
+    font-weight: bold
+}
+
+.page .cooperationBanner button {
+    margin-top: 30px;
+    width: 250px;
+    height: 35px;
+    background-color: #35a8b9;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer
+}
+
+.content {
+    position: relative;
+    left: 300px;
+    width: 650px;
+    margin-top: 30px;
+    min-height: 580px
+}
+
+.content .registration {
+    display: flex
+}
+
+.content .registration img {
+    margin-left: 15px
+}
+
+.content .registration .apply h3 {
     font-family: Verdana, sans-serif;
-*/
+    color: #95d0d9;
+    font-size: 15px;
+    margin: 0 0 10px 50px
+}
 
-/* ---------------------------------------- Footer */
+.content .registration .apply label[for="organization"] {
+    color: #decacb;
+    font-size: 13px;
+    margin-left: 48px;
+    margin-right: 25px
+}
+
+.content .registration .apply label[for="phone"] {
+    color: #decacb;
+    font-size: 13px;
+    margin-right: 25px
+}
+
+.content .registration .apply input {
+    width: 170px;
+    height: 22px;
+    border: 1px solid #35a8b9;
+    margin: 5px 0
+}
+
+.content .registration .apply button {
+    position: relative;
+    top: 23px;
+    left: 75px;
+    width: 250px;
+    height: 35px;
+    background-color: #35a8b9;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer
+}
+
+.content .textContent {
+    padding: 0 10px
+}
+
+.content .textContent h3 {
+    font-family: Verdana, sans-serif;
+    color: #95d0d9;
+    font-size: 18px;
+    margin: 23px 0
+}
+
+.content .textContent p, .content .textContent ol {
+    color: #decacb;
+    font-size: 12px;
+    margin: 25px 0;
+    line-height: 20px
+}
+
+.content .theParticipantsContent {
+    padding: 0 10px;
+    position: relative
+}
+
+.content .theParticipantsContent .theParticipantsText h3 {
+    color: #fff;
+    font-size: 15px;
+    margin: 23px 0
+}
+
+.content .theParticipantsContent .theParticipantsText a {
+    color: #decacb;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 40px
+}
+
+.content .theParticipantsContent .theParticipantsText a:hover {
+    text-decoration: none
+}
+
+.content .theParticipantsContent .images img {
+    border: 10px solid #3c312f;
+    margin: 8px
+}
 
 .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     border-top: 1px solid #6A5455;
-    height: 120px;
+    height: 120px
+}
+
+.footer img {
+    margin-top: 15px
+}
+
+.footer a {
+    color: #fff;
+    font-size: 12px;
+    position: absolute;
+    top: 50px;
+    left: 100px
+}
+
+.footer a:hover {
+    text-decoration: none
 }
