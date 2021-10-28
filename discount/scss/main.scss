@@ -163,7 +163,7 @@ body {
 .registration {
     display: flex;
 
-    &::before {
+    &::before {/* TODO: положи на фон у apply или registration */
         content: "";
         background-image: url("../images/cards.jpg");
         width: 50%;
