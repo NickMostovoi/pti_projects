@@ -1,0 +1,511 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-size: 16px;
+}
+
+body {
+    color: #4f4f4f;
+    font: 13px Tahoma, sans-serif;
+    background: #ededed;
+}
+
+.page {
+    width: 63.7rem;
+    margin: 0 auto;
+    background-color: #ffffff;
+    min-height: 100%;
+    padding-bottom: 7rem;
+    position: relative;
+}
+
+buttom {
+    cursor: pointer;
+}
+
+/* ---------------------------------------------- Header */
+
+.header {
+    background-color: #ffffff;
+    position: relative;
+
+    .logo {
+        height: 6rem;
+
+        img {
+            margin: 1.9rem 3.1rem;
+            width: 12rem;
+            height: 2.4rem;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 2.5rem;
+            right: 3.875rem;
+            display: flex;
+
+            .home {
+                padding-left: 1.5rem;
+                background: url("../images/home.gif") no-repeat 0 0.25rem;
+
+                a {
+                    margin-right: 3.56rem;
+                    color: #6b6b6b;
+
+                    &:hover {
+                        color: #2faed8;
+                        text-decoration: none;
+                    }
+                }
+
+                &:hover {
+                    background: url("../images/home.gif") no-repeat 0 -0.8125rem;
+                }
+            }
+
+            .contacts {
+                padding-left: 1.5rem;
+                background: url("../images/contacts.gif") no-repeat 0 0.25rem;
+
+                a {
+                    color: #6b6b6b;
+
+                    &:hover {
+                        color: #2faed8;
+                        text-decoration: none;
+                    }
+                }
+
+                &:hover {
+                    background: url("../images/contacts.gif") no-repeat 0 -0.8125rem;
+                }
+            }
+        }
+    }
+
+    /* ---------------------------------------------- Menu */
+
+    .menu {
+        position: relative;
+
+        img {
+            width: 100%;
+            height: 10.4rem;
+        }
+
+        .links {
+            position: absolute;
+            right: 0;
+            bottom: 0.1675rem;
+            display: flex;
+
+            a {
+                font-weight: bold;
+                padding: 0.4rem 1rem;
+                margin: 0;
+                background-color: #2faed8;
+                color: #fff;
+                border: 0.0625rem solid #afafaf;
+                border-radius: 0.3rem 0.3rem 0 0;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .active {
+                background-color: #fff;
+                color: #2faed8;
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+/* --------------------------------------------------- Grid */
+
+.columns {
+    padding-top: 1.87rem;
+    display: flex;
+}
+
+.column-left {
+    width: 23%;
+    padding: 0 1rem;
+}
+
+.column-center {
+    width: 54%;
+    padding: 0 1rem;
+}
+
+.column-right {
+    width: 23%;
+    padding: 0 1rem;
+}
+
+/* ---------------------------------------------- Column left */
+
+.column-left {
+    .items {
+        background-color: #ececec;
+        border-radius: 0.4rem;
+        display: flex;
+        flex-direction: column;
+        padding: 0.7rem 1.5rem;
+
+        a {
+            position: relative;
+            text-decoration: none;
+            margin: 0.3rem 0;
+            font-weight: bold;
+            font-size: 0.875rem;
+            color: #6b6b6b;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0.5rem;
+                left: -0.6rem;
+                width: 0.1875rem;
+                height: 0.1875rem;
+                background-image: url("../images/square.gif");
+            }
+
+            &:hover {
+                color: #2faed8;
+            }
+        }
+    }
+}
+
+/* ---------------------------------------------- Description */
+
+.description {
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+
+    a {
+        color: #2faed8;
+        border-bottom: 0.06rem dashed #2faed8;
+        text-decoration: none;
+
+        &:hover {
+            border: none;
+        }
+    }
+}
+
+.newsBar {
+    display: flex;
+    border-bottom: 0.1rem dotted #d8d8d8;
+
+    .news {
+        margin: 1rem 0;
+        width: 50%;
+
+        h3 {
+            color: #2faed8;
+            border-bottom: 0.06rem solid #d8d8d8;
+            padding-bottom: 0.3rem;
+        }
+
+        p {
+            padding: 0.5rem;
+            line-height: 1.25rem;
+            background: linear-gradient(#f3f3f3, #fff);
+        }
+
+        buttom {
+            display: flex;
+            justify-content: right;
+            margin: 1rem 2.5rem 0 0;
+            color: #2faed8;
+
+            &::after {
+                content: "";
+                width: 0.5625rem;
+                position: relative;
+                left: 1rem;
+                top: 0.4rem;
+                background: url("../images/arrow2.gif") no-repeat;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &:first-child {
+            margin-right: 0.5rem;
+        }
+
+        &:last-child {
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+/* ---------------------------------------- Main section */
+
+.mainSection {
+    h4 {
+        color: #2faed8;
+    }
+
+    .featured {
+        padding: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+
+        .item {
+            padding: 0.5rem;
+            width: 50%;
+
+            h4 {
+                color: #6b6b6b;
+            }
+
+            .borderImage {
+                float: left;
+                width: 5.625rem;
+                height: 5.625rem;
+                background-color: #dddddd;
+                border: 0.07rem solid #b3b3b3;
+                margin: 0 0.5rem;
+
+                img {
+                    position: relative;
+                    top: 0.25rem;
+                    left: 0.25rem;
+                }
+            }
+        }
+    }
+}
+
+/* ------------------------------------------- Advantages */
+
+.advantages {
+    h4 {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 0.06rem solid #000;
+    }
+
+    dl {
+        padding: 0.3rem;
+        line-height: 1.3rem;
+
+        dt {
+            color: #2faed8;
+            margin-top: 0.5rem;
+            font-weight: bold;
+        }
+
+        a {
+            color: #2faed8;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+/* ------------------------------------------- Request */
+
+.request {
+    h4 {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 0.06rem solid #000;
+    }
+
+    form {
+        margin: 0.8rem 2rem;
+        width: 17.5rem;
+        position: relative;
+
+        img {
+            position: relative;
+            left: 5.7rem;
+            border: 0.06rem solid #000;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            margin-bottom: 0.8rem;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 9rem;
+        }
+
+        span {
+            color: #2faed8;
+        }
+
+        #file {
+            border: 0.06rem solid #9b9b9b;
+        }
+
+        button {
+            width: 6rem;
+            height: 1.7rem;
+            font-weight: bold;
+            color: #6b6b6b;
+        }
+    }
+}
+
+/* ------------------------------------------------ Faq */
+
+.faqMain {
+    h4 {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 0.06rem solid #000;
+    }
+
+    a {
+        color: #2faed8;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .faq {
+        padding: 1rem 0;
+        line-height: 1.3rem;
+
+        .tab {
+            input,
+            .tab-content {
+                display: none;
+            }
+
+            .tab-title {
+                display: block;
+                cursor: pointer;
+                color: #2faed8;
+                padding: 0 1rem;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .tab-content {
+                padding: 0 1rem 1rem 1rem;
+            }
+        }
+
+        .tab :checked ~ .tab-content {
+            display: block;
+            background-color: #f2f2f2;
+        }
+
+        .tab :checked ~ .tab-title {
+            display: block;
+            background-color: #f2f2f2;
+        }
+    }
+}
+
+/* ------------------------------------------- Column right */
+
+.column-right {
+    .contact {
+        background-color: #ececec;
+        border-radius: 0.4rem;
+        padding: 0.7rem 1.5rem;
+    }
+
+    .massage {
+        margin-top: 1rem;
+        padding-left: 1.5rem;
+        background: url("../images/message.gif") no-repeat 0 -0.9375rem;
+
+        a {
+            color: #2faed8;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        &:hover {
+            background: url("../images/message.gif") no-repeat 0 0.1875rem;
+        }
+    }
+
+    .call {
+        margin-top: 1rem;
+        padding-left: 1.5rem;
+        height: 1.5rem;
+        background: url("../images/call.gif") no-repeat 0 -1.875rem;
+
+        a {
+            color: #2faed8;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        &:hover {
+            background: url("../images/call.gif") no-repeat 0 0;
+        }
+    }
+}
+
+/* ------------------------------------------------- Footer */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 0.06rem solid #d4d4d4;
+    background-color: #eee;
+    height: 6rem;
+
+    img {
+        margin: 1.5rem 0.5rem 1.5rem 1.5rem;
+        float: left;
+    }
+
+    p {
+        font-family: Arial, sans-serif;
+        margin-top: 2rem;
+        color: #2faed8;
+    }
+
+    .otherLinks {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+
+        a {
+            text-decoration: none;
+            color: #6b6b6b;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

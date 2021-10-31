@@ -8,31 +8,88 @@
 </head>
 
 <body>
-    Home
-    Contacts
 
-    About us
-    Our advantages
-    Contact us
-    FAQ
+    <div class="page">
 
-    Our works
-    Prices
-    Portfolio
+        <div class="header">
 
-    Contact us to discuss how we can help you
-    Contact Us
-    Call Us
+            <div class="logo">
+                <a href="#"><img src="images/logo.gif" alt="logo"></a>
+                <div class="navigation">
+                    <div class="home"><a href="#">Home</a></div>
+                    <div class="contacts"><a href="#">Contacts</a></div>
+                </div>
+            </div>
 
-    Request Form
-    * Name:
-    * E-mail:
-    * Request description:
-    File:
-    * Security Code:
-    Send
+            <div class="menu">
+                <a href="#"><img src="images/mainBanner.jpg" alt="mainBanner"></a>
+                <div class="links">
+                    <a href="about_us.htm">About us</a>
+                    <a href="our_advantages.htm">Our advantages</a>
+                    <a href="contact_us.htm" class="active">Contact us</a>
+                    <a href="faq.htm">FAQ</a>
+                </div>
+            </div>
 
-    &copy; 2007-2008 AirBionic. All rights reserved.
-    <a href="#">Company</a> | <a href="#">Portfolio</a> | <a href="#">Contacts</a> | <a href="#">Some thing</a>
+        </div>
+
+        <div class="columns">
+
+            <div class="column-left">
+                <div class="items">
+                    <a href="#">Our works</a>
+                    <a href="#">Prices</a>
+                    <a href="#">Portfolio</a>
+                </div>
+            </div>
+
+            <div class="column-center">
+                <div class="request">
+                    <h4>Request Form</h4>
+
+                    <form>
+                        <label for="name"><span>*</span> Name:</label>
+                        <input id="name" type="text"><br>
+
+                        <label for="email"><span>*</span> E-mail:</label>
+                        <input id="email" type="email"><br>
+
+                        <label for="message"><span>*</span> Request description:</label>
+                        <textarea id="message"></textarea><br>
+
+                        <label for="file">File:</label>
+                        <input id="file" type="file"><br>
+                        <img src="images/12345.gif" alt="securityCode"><br>
+
+                        <label for="security"><span>*</span> Security Code:</label>
+                        <input id="security" type="text"><br>
+
+                        <button type="submit">Send</button>
+                    </form>
+
+                </div>
+
+            </div>
+
+            <div class="column-right">
+                <div class="contact">
+                    <p>Contact us to discuss how we can help you</p>
+                    <div class="massage"><a href="#">Contact Us</a></div>
+                    <div class="call"><a href="#">Call Us</a></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <img src="images/footer.gif" alt="footer">
+            <p>&copy; 2007-2008 AirBionic. All rights reserved.</p>
+            <div class="otherLinks">
+                <a href="#">Company</a> | <a href="#">Portfolio</a> | <a href="#">Contacts</a> | <a href="#">Some thing</a>
+            </div>
+        </div>
+
+    </div>
+
 </body>
 </html>
