@@ -1,0 +1,238 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: Tahoma, sans-serif;
+}
+
+.page {
+    width: 1014px;
+    margin: 0 auto;
+    min-height: 100%;
+    padding-bottom: 100px;
+    position: relative;
+    background-color: #2f3239;
+}
+
+/* ---------------------------------------- Header */
+
+.header {
+    background-color: #2e3138;
+    height: 320px;
+    position: relative;
+
+    .logoLine {
+        position: relative;
+        top: 80px;
+        background-color: #000;
+        height: 150px;
+
+        img {
+            margin-left: 90px;
+        }
+
+        h2 {
+            font-family: Franklin Gothic, serif;
+            font-size: 18px;
+            color: #a8aebe;
+            margin-left: 90px;
+            font-weight: normal;
+        }
+
+        .car {
+            background-image: url("../images/car.png");
+            position: absolute;
+            top: -60px;
+            right: 100px;
+            width: 503px;
+            height: 245px;
+        }
+    }
+
+    .menuLine {
+        position: absolute;
+        bottom: 0;
+        background-color: #fd6803;
+        height: 40px;
+        width: 100%;
+
+        .menu {
+            margin: 0 10px;
+            display: flex;
+        }
+
+        a {
+            margin: 0 5px;
+            font-size: 16px;
+            letter-spacing: 1px;
+            color: #161616;
+            padding: 10px 0 5px 0;
+            font-weight: bold;
+            font-family: Verdana, serif;
+            text-decoration: none;
+            display: block;
+            min-width: 180px;
+            text-align: center;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            &.active {
+                color: #fd6803;
+                background-color: #2e3138;
+                border-radius: 0 0 10px 10px;
+            }
+        }
+    }
+}
+
+/* ---------------------------------------- Grid */
+
+.columns {
+    padding-top: 30px;
+    background-color: #000;
+
+    h3 {
+        margin: 10px;
+        font-size: 16px;
+        letter-spacing: 1px;
+        color: #fd6803;
+        font-weight: bold;
+        font-family: Verdana, serif;
+    }
+}
+
+.column-background {
+    display: flex;
+    background-color: #2f3239;
+}
+
+.column-left {
+    margin-left: 15px;
+    color: #e5e5e5;
+    width: 33.33%;
+    padding: 20px;
+}
+
+.column-center {
+    color: #e5e5e5;
+    width: 33.33%;
+    padding: 15px;
+}
+
+.column-right {
+    margin-right: 20px;
+    color: #e5e5e5;
+    width: 33.33%;
+    padding: 15px;
+}
+
+/* ---------------------------------------- Column left  */
+
+.column-left {
+    border-left: 1px dashed #fff;
+    border-right: 1px dashed #fff;
+
+    p {
+        font-size: 14px;
+        margin: 15px 0;
+    }
+
+    a {
+        color: #e5e5e5;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+/* ---------------------------------------- Column center  */
+
+.column-center {
+    border-right: 1px dashed #fff;
+
+    h3 {
+        text-align: center;
+    }
+
+    p {
+        font-size: 14px;
+        margin: 15px 0;
+    }
+
+    ul {
+        margin-left: 20px;
+        list-style-image: url("../images/dot.png");
+    }
+
+    li {
+        margin: 10px 0;
+    }
+}
+
+/* ---------------------------------------- Column right  */
+
+.column-right {
+    border-right: 1px dashed #fff;
+
+    h3 {
+        text-align: center;
+    }
+
+    p {
+        font-size: 14px;
+        margin: 15px 0;
+    }
+
+    .items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        img {
+            border: 5px solid #fff;
+            margin: 10px 3px;
+
+            &:hover {
+                transition: 0.5s;
+                opacity: 0.6;
+            }
+        }
+    }
+}
+
+/* ---------------------------------------- Footer */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #000;
+    padding: 20px 50px;
+    border-bottom: 10px solid #fd6a03;
+
+    h4 {
+        font-size: 18px;
+        color: #fd5803;
+        font-family: Arial, sans-serif;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 12px;
+        color: #d6d5d5;
+        font-family: Tahoma, serif;
+
+    }
+}
