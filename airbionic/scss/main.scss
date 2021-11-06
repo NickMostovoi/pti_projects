@@ -52,46 +52,40 @@ button {
             display: flex;
 
             .home {
-                padding-left: 1.5rem;
-                background: url("../images/home.gif") no-repeat 0 0.25rem;
-
-                a {
-                    margin-right: 3.56rem;
-                    color: #6b6b6b;
-
-                    &:hover {
-                        color: #2faed8;
-                        text-decoration: none;
-                    }
-                }
+                margin-right: 3.56rem;
+                color: #6b6b6b;
 
                 &:hover {
-                    background: url("../images/home.gif") no-repeat 0 -0.8125rem; // TODO: background-position
+                    color: #2faed8;
+                    text-decoration: none;
                 }
 
                 &::before {
-                    //
+                    content: "";
+                    padding-left: 1.5rem;
+                    background: url("../images/home.gif") no-repeat 0 0.25rem;
                 }
 
                 &:hover::before {
-                    //
+                    background-position: 0 -0.8125rem;
                 }
             }
 
             .contacts {
-                padding-left: 1.5rem;
-                background: url("../images/contacts.gif") no-repeat 0 0.25rem;
-
-                a {
-                    color: #6b6b6b;
-
-                    &:hover {
-                        color: #2faed8;
-                        text-decoration: none;
-                    }
-                }
+                color: #6b6b6b;
 
                 &:hover {
+                    color: #2faed8;
+                    text-decoration: none;
+                }
+
+                &::before {
+                    content: "";
+                    padding-left: 1.5rem;
+                    background: url("../images/contacts.gif") no-repeat 0 0.25rem;
+                }
+
+                &:hover::before {
                     background-position: 0 -0.8125rem;
                 }
             }
@@ -232,7 +226,7 @@ button {
             background: linear-gradient(#f3f3f3, #fff);
         }
 
-        buttom {
+        a {
             display: flex;
             justify-content: right;
             margin: 1rem 2.5rem 0 0;
@@ -282,19 +276,15 @@ button {
                 color: #6b6b6b;
             }
 
-            .borderImage {
+            img {
+                position: relative;
+                top: 0.25rem;
+                left: 0.25rem;
+                border: 0.32rem solid #dddddd;
                 float: left;
                 width: 5.625rem;
                 height: 5.625rem;
-                background-color: #dddddd;
-                border: 0.07rem solid #b3b3b3;
                 margin: 0 0.5rem;
-
-                img {
-                    position: relative;
-                    top: 0.25rem;
-                    left: 0.25rem;
-                }
             }
         }
     }
@@ -305,27 +295,28 @@ button {
 .advantages {
     h4 {
         font-size: 1rem;
-        margin-bottom: 0.4rem;
+        margin-bottom: 1rem;
         padding-bottom: 0.4rem;
         border-bottom: 0.06rem solid #000;
+        line-height: 1.3rem;
     }
 
-    dl {
-        padding: 0.3rem;
+    p {
         line-height: 1.3rem;
+    }
 
-        dt {
-            color: #2faed8;
-            margin-top: 0.5rem;
-            font-weight: bold;
-        }
+    h5 {
+        font-size: 0.8rem;
+        color: #2faed8;
+        margin: 0.2rem 0;
+        font-weight: bold;
+    }
 
-        a {
-            color: #2faed8;
+    a {
+        color: #2faed8;
 
-            &:hover {
-                text-decoration: none;
-            }
+        &:hover {
+            text-decoration: none;
         }
     }
 }
@@ -389,48 +380,22 @@ button {
         border-bottom: 0.06rem solid #000;
     }
 
-    a {
-        color: #2faed8;
-
-        &:hover {
-            text-decoration: none;
-        }
-    }
-
-    .faq {
-        padding: 1rem 0;
+    dl {
+        padding: 0.3rem;
         line-height: 1.3rem;
 
-        .tab {
-            input,
-            .tab-content {
-                display: none;
-            }
-
-            .tab-title {
-                display: block;
-                cursor: pointer;
-                color: #2faed8;
-                padding: 0 1rem;
-
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-
-            .tab-content {
-                padding: 0 1rem 1rem 1rem;
-            }
+        dt {
+            color: #2faed8;
+            margin-top: 0.5rem;
+            font-weight: bold;
         }
 
-        .tab :checked ~ .tab-content {
-            display: block;
-            background-color: #f2f2f2;
-        }
+        a {
+            color: #2faed8;
 
-        .tab :checked ~ .tab-title {
-            display: block;
-            background-color: #f2f2f2;
+            &:hover {
+                text-decoration: none;
+            }
         }
     }
 }
@@ -443,39 +408,46 @@ button {
     padding: 0.7rem 1.5rem;
 
     .massage {
-        margin-top: 1rem;
-        padding-left: 1.5rem;
-        background: url("../images/message.gif") no-repeat 0 -0.9375rem;
-
-        a {
-            color: #2faed8;
-
-            &:hover {
-                text-decoration: none;
-            }
-        }
+        color: #2faed8;
+        display: inline-block;
+        margin: 1rem 0 0.2rem;
 
         &:hover {
-            background: url("../images/message.gif") no-repeat 0 0.1875rem; // TODO: background-position
+            text-decoration: none;
+        }
+
+        &::before {
+            content: "";
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+            background: url("../images/message.gif") no-repeat 0 -0.9375rem;
+        }
+
+        &:hover::before {
+            background-position: 0 0.1875rem;
         }
     }
 
     .call {
-        margin-top: 1rem;
-        padding-left: 1.5rem;
-        height: 1.5rem;
-        background: url("../images/call.gif") no-repeat 0 -1.875rem;
-
-        a {
-            color: #2faed8;
-
-            &:hover {
-                text-decoration: none;
-            }
-        }
+        color: #2faed8;
+        display: inline-block;
 
         &:hover {
-            background: url("../images/call.gif") no-repeat 0 0; // TODO: background-position
+            text-decoration: none;
+        }
+
+        &::before {
+            content: "";
+            display: inline-block;
+            padding-left: 1.5rem;
+            height: 1.5rem;
+            background: url("../images/call.gif") no-repeat 0 -1.875rem;
+            position: relative;
+            top: 0.6rem;
+        }
+
+        &:hover::before {
+            background-position: 0 0;
         }
     }
 }
