@@ -27,13 +27,14 @@
 'lamp'
 
 // 3. Создать 10 объектов представляющих объекты реального мира. В каждом объекте должно быть не меньше 4 свойств.
+// TODO запятые
 
 {
-    name: 'keyboard'
-    price: 50
-    color: 'black'
-    charger: 'battery'
-    lang: 'en'
+    name: 'keyboard',
+    price: 50,
+    color: 'black',
+    charger: 'battery',
+    lang: 'en',
     backlight: true
 }
 
@@ -80,10 +81,10 @@
 }
 
 {
-    name: 'case'
-    color: 'transparent'
-    material: 'silicon'
-    weight: 20
+    name: 'case',
+    color: 'transparent',
+    material: 'silicon',
+    weight: 20,
     forModel: 'iPhoneX'
 }
 
@@ -117,60 +118,56 @@
 
 // 4. Создать 10 массивов представляющих массивы некоторых значений из реальной жизни. В каждом массиве должно быть не меньше 4 элементов.
 
-['glass', 'plate', 'spoon', 'fork', 'knife']
+['glass', 'plate', 'spoon', 'fork', 'knife'];
 
-[23, 18, 45, 78, 82]
+[23, 18, 45, 78, 82];
 
-['pen', '2.50$', 'blue', 'without cap']
+['pen', '2.50$', 'blue', 'without cap'];
 
-['red', 'blue', 'black', 'beige', 'purple', 'pink', 'green']
+['red', 'blue', 'black', 'beige', 'purple', 'pink', 'green'];
 
-['mouse', 'A4TECH', 14.3 + '$', 'black']
+['mouse', 'A4TECH', 14.3 + '$', 'black'];
 
-['keyboard', 50 + '$', 'black', 'en', 'with backlight']
+['keyboard', 50 + '$', 'black', 'en', 'with backlight'];
 
-['shampoo', 'gel', 'soap', 'foam', 'toothpaste']
+['shampoo', 'gel', 'soap', 'foam', 'toothpaste'];
 
-[100.4, 104.89, 159.39, 159.42, 102.1]
+[100.4, 104.89, 159.39, 159.42, 102.1];
 
-['lemon', 'tangerine', 'banana', 'peach', 'pear']
+['lemon', 'tangerine', 'banana', 'peach', 'pear'];
 
-['notebook', '10$', 'sea wave color', 'with calendar', '200 pages']
+['notebook', '10$', 'sea wave color', 'with calendar', '200 pages'];
 
 // 5. Объявить 5 переменных с произвольным именем.
 
-var keyboard
-var mouse
-var notebook
-var pen
-var headphones
-var table
-var book
-var charger
-var monitor
-var lamp
+var keyboard = 5, mouse;
+var notebook;
+var pen;
+var headphones;
+var table, book, charger;
+var monitor;
+var lamp;
 
 // 6. Объявить еще 5 переменных и в момент объявления присвоить им значения произвольных типов данных.
 
-var q = 1
-var w = 'string'
-var e = [1, 5, 12, 10]
-var r = true
-var t = false
+var q = 1, w = 'string';
+var e = [1, 5, 12, 10];
+var r = true;
+var t = false;
 var y = {
     brand: 'Toyota',
     model: 'Camry',
     color: 'black',
     price: 50000 + '$'
-}
+};
 
 // 7. Создать массив из элементов, значения которых представлены всеми изученными типами данных в JavaScript.
 
-[255, 'string', true, null, undefined, [5, 54], {name: 'Петя', age: 30}]
+[255, 'string', true, null, undefined, [5, 54], {name: 'Петя', age: 30}];
 
-// 8. Создать объект из четырех свойств. Три свойства должны иметь значения простых типов данных. Два остальных свойства должны иметь значения составного (объектного) типа данных.
+// 8. Создать объект из 5 свойств. Три свойства должны иметь значения простых типов данных. Два остальных свойства должны иметь значения составного (объектного) типа данных.
 
-per = {
+var person = {
     name: 'Vasia',
     age: 35,
     married: false,
@@ -179,7 +176,7 @@ per = {
         {name: 'Maria', age: 5}
     ],
     ownerOf: ['home', 'car', 'boat', 'helicopter']
-}
+};
 
 // 9. Написать выражения использующие все изученные арифметические операторы
 
@@ -215,45 +212,45 @@ a -= 3
 
 // 14. Создать массив из 10 элементов (чисел) и написать выражения возвращающие значение первого, третьего, пятого и восьмого элемента
 
-numbers = [10, 20, 30, 40, 50, 6.60, 7.70, 8.80, 9.90, 100]
-numbers[0]
-numbers[2]
-numbers[4]
-numbers[7]
+numbers = [10, 20, 30, 40, 50, 6.60, 7.70, 8.80, 9.90, 100];
+numbers[0];
+numbers[2];
+numbers[4];
+numbers[7];
 
 // 15. Создать массив и написать 3 выражения меняющие значения его элементов
 
-colors = ['red', 'blue', 'black', 'beige', 'purple', 'pink', 'green']
-colors[1] = 'white'
-colors[3] = 'yellow'
-colors[4] = 'darkRed'
+colors = ['red', 'blue', 'black', 'beige', 'purple', 'pink', 'green'];
+colors[1] = 'white';
+colors[3] = 'yellow';
+colors[4] = 'darkRed';
 
 // 16. Создать объект из 5 свойств и написать 3 выражения возвращающие значения произвольных свойств
 
-charger = {
+var charger = {
     brand: 'Samsung',
     price: 12.20,
     color: 'red',
     conector: 'usb',
     standart: 'EU',
     wireless: false
-}
+};
 
-charger.color
-charger.conector
-charger.standart
+charger.color;
+charger.conector;
+charger.standart;
 
 // 17. Создать объект и написать 3 выражения меняющие значения его свойств
 
-monitor = {
+var monitor = {
     name: 'FF203',
     brand: 'LG',
     price: 200.50,
     color: 'black',
-    conector: 'HDMI',
+    connector: 'HDMI',
     resolution: 'FullHD'
-}
+};
 
-monitor.name = 'DE101'
-monitor.resolution = '4K'
-monitor.price = 320.40
+monitor.name = 'DE101';
+monitor.resolution = '4K';
+monitor.price = 320.40;
