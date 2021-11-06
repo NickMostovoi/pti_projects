@@ -27,7 +27,6 @@
 'lamp'
 
 // 3. Создать 10 объектов представляющих объекты реального мира. В каждом объекте должно быть не меньше 4 свойств.
-// TODO запятые
 
 {
     name: 'keyboard',
@@ -39,44 +38,43 @@
 }
 
 {
-    name: 'mouse'
-    brand: 'A4TECH'
-    price: 14.3
-    color: 'black'
+    name: 'mouse',
+    brand: 'A4TECH',
+    price: 14.3,
+    color: 'black',
     wireless: true
-
 }
 
 {
-    name: 'notebook'
-    price: 10
-    color: 'sea wave'
-    calendar: true
-    bookmark: true
+    name: 'notebook',
+    price: 10,
+    color: 'sea wave',
+    calendar: true,
+    bookmark: true,
     pages: 200
 }
 
 {
-    name: 'pen'
-    price: 2.50
-    color: 'blue'
-    kilometers: 10
+    name: 'pen',
+    price: 2.50,
+    color: 'blue',
+    kilometers: 10,
     cap: false
 }
 
 {
-    name: 'headphones'
-    brand: 'Samsung'
-    price: 250
-    wireless: true
+    name: 'headphones',
+    brand: 'Samsung',
+    price: 250,
+    wireless: true,
     color: 'white'
 }
 
 {
-    name: 'table'
-    material: 'red tree'
-    price: 300
-    forComputer: true
+    name: 'table',
+    material: 'red tree',
+    price: 300,
+    forComputer: true,
     wheels: true
 }
 
@@ -89,30 +87,30 @@
 }
 
 {
-    name: 'charger'
-    brand: 'Samsung'
-    price: 12.20
-    color: 'red'
-    conector: 'usb'
-    standart: 'EU'
+    name: 'charger',
+    brand: 'Samsung',
+    price: 12.20,
+    color: 'red',
+    conector: 'usb',
+    standart: 'EU',
     wireless: false
 }
 
 {
-    name: 'monitor'
-    brand: 'LG'
-    price: 200.50
-    color: 'black'
-    conector: 'HDMI'
+    name: 'monitor',
+    brand: 'LG',
+    price: 200.50,
+    color: 'black',
+    conector: 'HDMI',
     resolution: 'FullHD'
 }
 
 {
-    name: 'lamp'
-    price: 10
-    color: 'white'
-    charger: 'cable'
-    material: 'plastic'
+    name: 'lamp',
+    price: 10,
+    color: 'white',
+    charger: 'cable',
+    material: 'plastic',
     bluetooth: false
 }
 
