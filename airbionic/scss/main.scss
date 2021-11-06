@@ -26,7 +26,7 @@ body {
     box-shadow: 0 0 1.25rem 0.3125rem #d5d5d5;
 }
 
-buttom {
+button {
     cursor: pointer;
 }
 
@@ -66,7 +66,15 @@ buttom {
                 }
 
                 &:hover {
-                    background: url("../images/home.gif") no-repeat 0 -0.8125rem;
+                    background: url("../images/home.gif") no-repeat 0 -0.8125rem; // TODO: background-position
+                }
+
+                &::before {
+                    //
+                }
+
+                &:hover::before {
+                    //
                 }
             }
 
@@ -84,7 +92,7 @@ buttom {
                 }
 
                 &:hover {
-                    background: url("../images/contacts.gif") no-repeat 0 -0.8125rem;
+                    background-position: 0 -0.8125rem;
                 }
             }
         }
@@ -152,42 +160,40 @@ buttom {
     padding: 0 1rem;
 }
 
-/* ---------------------------------------------- Column left */
+/* ---------------------------------------------- Module: Items */
 
-.column-left {
-    .items {
-        background-color: #ececec;
-        border-radius: 0.4rem;
-        display: flex;
-        flex-direction: column;
-        padding: 0.7rem 1.5rem;
+.items {
+    background-color: #ececec;
+    border-radius: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0.7rem 1.5rem;
 
-        a {
-            position: relative;
-            text-decoration: none;
-            margin: 0.3rem 0;
-            font-weight: bold;
-            font-size: 0.875rem;
-            color: #6b6b6b;
+    a {
+        position: relative;
+        text-decoration: none;
+        margin: 0.3rem 0;
+        font-weight: bold;
+        font-size: 0.875rem;
+        color: #6b6b6b;
 
-            &::before {
-                content: "";
-                position: absolute;
-                top: 0.5rem;
-                left: -0.6rem;
-                width: 0.1875rem;
-                height: 0.1875rem;
-                background-image: url("../images/square.gif");
-            }
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0.5rem;
+            left: -0.6rem;
+            width: 0.1875rem;
+            height: 0.1875rem;
+            background-image: url("../images/square.gif");
+        }
 
-            &:hover {
-                color: #2faed8;
-            }
+        &:hover {
+            color: #2faed8;
         }
     }
 }
 
-/* ---------------------------------------------- Description */
+/* ---------------------------------------------- Module: Description */
 
 .description {
     font-size: 0.9rem;
@@ -203,6 +209,8 @@ buttom {
         }
     }
 }
+
+/* ---------------------------------------------- Module: newsBar */
 
 .newsBar {
     display: flex;
@@ -254,7 +262,7 @@ buttom {
     }
 }
 
-/* ---------------------------------------- Main section */
+/* ---------------------------------------- Module: Main section */
 
 .mainSection {
     h4 {
@@ -292,7 +300,7 @@ buttom {
     }
 }
 
-/* ------------------------------------------- Advantages */
+/* ------------------------------------------- Module: Advantages */
 
 .advantages {
     h4 {
@@ -322,7 +330,7 @@ buttom {
     }
 }
 
-/* ------------------------------------------- Request */
+/* ------------------------------------------- Module: Request */
 
 .request {
     h4 {
@@ -371,7 +379,7 @@ buttom {
     }
 }
 
-/* ------------------------------------------------ Faq */
+/* ------------------------------------------------ Module: Faq */
 
 .faqMain {
     h4 {
@@ -427,14 +435,12 @@ buttom {
     }
 }
 
-/* ------------------------------------------- Column right */
+/* ------------------------------------------- Module: contact */
 
-.column-right {
-    .contact {
-        background-color: #ececec;
-        border-radius: 0.4rem;
-        padding: 0.7rem 1.5rem;
-    }
+.contact {
+    background-color: #ececec;
+    border-radius: 0.4rem;
+    padding: 0.7rem 1.5rem;
 
     .massage {
         margin-top: 1rem;
@@ -450,7 +456,7 @@ buttom {
         }
 
         &:hover {
-            background: url("../images/message.gif") no-repeat 0 0.1875rem;
+            background: url("../images/message.gif") no-repeat 0 0.1875rem; // TODO: background-position
         }
     }
 
@@ -469,7 +475,7 @@ buttom {
         }
 
         &:hover {
-            background: url("../images/call.gif") no-repeat 0 0;
+            background: url("../images/call.gif") no-repeat 0 0; // TODO: background-position
         }
     }
 }
