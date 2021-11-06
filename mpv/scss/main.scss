@@ -22,38 +22,57 @@ body {
     background-color: #2f3239;
 }
 
+/* ---------------------------------------- Basic styles */
+
+h3 {
+    margin: 10px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #fd6803;
+    font-weight: bold;
+    font-family: Verdana, serif;
+    text-align: center;
+}
+
+p {
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+ul {
+    margin-left: 20px;
+    list-style-image: url("../images/dot.png");
+}
+
+li {
+    margin: 10px 0;
+}
+
+a {
+    color: #e5e5e5;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
 /* ---------------------------------------- Header */
 
 .header {
-    background-color: #2e3138;
     height: 320px;
     position: relative;
+    background: 80% 10% url("../images/car.png") no-repeat, linear-gradient(to bottom, #2f3339, #17181b 80px, #000 1rem, #000 15rem, #2f3339 1rem, #16181b );
 
     .logoLine {
-        position: relative;
+        position: absolute;
         top: 80px;
-        background-color: #000;
-        height: 150px;
-
-        img {
-            margin-left: 90px;
-        }
+        left: 90px;
 
         h2 {
             font-family: Franklin Gothic, serif;
             font-size: 18px;
             color: #a8aebe;
-            margin-left: 90px;
             font-weight: normal;
-        }
-
-        .car {
-            background-image: url("../images/car.png");
-            position: absolute;
-            top: -60px;
-            right: 100px;
-            width: 503px;
-            height: 245px;
         }
     }
 
@@ -100,15 +119,6 @@ body {
 .columns {
     padding-top: 30px;
     background-color: #000;
-
-    h3 {
-        margin: 10px;
-        font-size: 16px;
-        letter-spacing: 1px;
-        color: #fd6803;
-        font-weight: bold;
-        font-family: Verdana, serif;
-    }
 }
 
 .column-background {
@@ -121,12 +131,15 @@ body {
     color: #e5e5e5;
     width: 33.33%;
     padding: 20px;
+    border-left: 1px dashed #fff;
+    border-right: 1px dashed #fff;
 }
 
 .column-center {
     color: #e5e5e5;
     width: 33.33%;
     padding: 15px;
+    border-right: 1px dashed #fff;
 }
 
 .column-right {
@@ -134,79 +147,23 @@ body {
     color: #e5e5e5;
     width: 33.33%;
     padding: 15px;
+    border-right: 1px dashed #fff;
 }
 
-/* ---------------------------------------- Column left  */
+/* ---------------------------------------- Gallery */
 
-.column-left {
-    border-left: 1px dashed #fff;
-    border-right: 1px dashed #fff;
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
-    p {
-        font-size: 14px;
-        margin: 15px 0;
-    }
-
-    a {
-        color: #e5e5e5;
+    img {
+        border: 5px solid #fff;
+        margin: 10px 3px;
 
         &:hover {
-            text-decoration: none;
-        }
-    }
-}
-
-/* ---------------------------------------- Column center  */
-
-.column-center {
-    border-right: 1px dashed #fff;
-
-    h3 {
-        text-align: center;
-    }
-
-    p {
-        font-size: 14px;
-        margin: 15px 0;
-    }
-
-    ul {
-        margin-left: 20px;
-        list-style-image: url("../images/dot.png");
-    }
-
-    li {
-        margin: 10px 0;
-    }
-}
-
-/* ---------------------------------------- Column right  */
-
-.column-right {
-    border-right: 1px dashed #fff;
-
-    h3 {
-        text-align: center;
-    }
-
-    p {
-        font-size: 14px;
-        margin: 15px 0;
-    }
-
-    .items {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-
-        img {
-            border: 5px solid #fff;
-            margin: 10px 3px;
-
-            &:hover {
-                transition: 0.5s;
-                opacity: 0.6;
-            }
+            transition: 0.5s;
+            opacity: 0.6;
         }
     }
 }
@@ -233,6 +190,5 @@ body {
         font-size: 12px;
         color: #d6d5d5;
         font-family: Tahoma, serif;
-
     }
 }
