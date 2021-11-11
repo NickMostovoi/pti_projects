@@ -140,15 +140,7 @@ var indexOf = function(array, value) {
 // => 5
 
 var lastIndexOf = function(array, value) {
-    var index = array.length;
-    var i = 0;
-    while (array.length > i) {
-        if (array[index] === value) {
-            return index;
-        }
-        index--;
-    }
-    return -1;
+    //TODO
 };
 
 // Создать функцию push которая принимает массив и произвольное значение и возвращает копию массива + произвольное значение (которое находится в конце массива)
@@ -304,15 +296,17 @@ var without = function(array, value) {
 var concat = function(arr1, arr2) {
     var newArr = [];
     var i = 0;
-    var b = 0;
+    var j = 0;
+
     while (i < arr1.length) {
         newArr[newArr.length] = arr1[i];
         i++;
     }
-    while (b < arr2.length) {
-        newArr[newArr.length] = arr2[b];
-        b++;
+    while (j < arr2.length) {
+        newArr[newArr.length] = arr2[j];
+        j++;
     }
+
     return newArr;
 };
 
@@ -322,16 +316,7 @@ var concat = function(arr1, arr2) {
 // => ['camel', 'duck']
 
 var slice = function(array, begin, end) {
-    var newArr = [];
-    var i = begin;
-    while (i <= end) {
-        if (end === undefined) {
-            end = array.length - 1;
-        }
-        newArr[newArr.length] = array[i];
-        i++;
-    }
-    return newArr;
+    //TODO
 };
 
 // Создать функцию getMatrixSum которая принимает матрицу чисел и возвращает сумму всех чисел.
@@ -342,12 +327,12 @@ var slice = function(array, begin, end) {
 var getMatrixSum = function(matrix) {
     var sum = 0;
     var i = 0;
-    var b = 0;
+    var j = 0;
     while (i < matrix.length) {
-        b = 0;
-        while (b < matrix[i].length) {
-            sum += matrix[i][b];
-            b++;
+        j = 0;
+        while (j < matrix[i].length) {
+            sum += matrix[i][j];
+            j++;
         }
         i++;
     }
@@ -418,7 +403,7 @@ var repeat = function(string, count) {
     var i = 0;
     while (i < count) {
         result += string;
-        count--;
+        i++;
     }
     return result;
 };
@@ -459,12 +444,13 @@ var multiply = function(array) {
 // => 4
 
 var abs = function(value) {
-    if (value >= 0) {
-        return value;
-    } else {
-        value *= -1;
-        return value;
-    }
+    return value < 0 ? -value : value;
+
+    // if (value < 0) {
+    //     value *= -1;
+    // }
+    //
+    // return value;
 };
 
 // Создать функцию pow которая принимает два числа и возводит первое число в степень (представленную вторым числом).
@@ -475,8 +461,8 @@ var abs = function(value) {
 // => 27
 
 var pow = function(value, exp) {
-    var result = value;
-    var i = 1;
+    var result = 1;
+    var i = 0;
     while (i < exp) {
         result *= value;
         i++;
