@@ -16,11 +16,13 @@
 // isUndefined(5);
 // => false
 
-var isUndefined = function (object) {
-    if (undefined === object) {
-        return true;
-    }
-    return false;
+var isUndefined = function(value) {
+    return value === undefined;
+
+    // if (value === undefined) {
+    //     return true;
+    // }
+    // return false;
 };
 
 // Создать функцию isNull которая принимает в качестве единственного входящего параметра значение любого типа данных
@@ -33,11 +35,13 @@ var isUndefined = function (object) {
 // isNull(5);
 // => false
 
-var isNull = function (data) {
-    if (null === data) {
-        return true;
-    }
-    return false;
+var isNull = function(value) {
+    return value === null;
+
+    // if (null === value) {
+    //     return true;
+    // }
+    // return false;
 };
 
 // Создать функцию isBoolean которая принимает в качестве единственного входящего параметра значение любого типа данных
@@ -52,12 +56,9 @@ var isNull = function (data) {
 // isBoolean(true);
 // => true
 
-var isBoolean = function (value) {
-    if (typeof value === "boolean") {
-        return 'true';
-    }
-    return 'false';
-}
+var isBoolean = function(value) {
+    return value === true || value === false;
+};
 
 // Создать функцию size которая принимает в качестве единственного входящего параметра массив и возвращает количество элементов в массиве.
 // Пример работы:
@@ -66,7 +67,7 @@ var isBoolean = function (value) {
 // size([7, 2, 3, 5, 1]);
 // => 5
 
-var size = function (list) {
+var size = function(list) {
     return list.length;
 };
 
@@ -77,7 +78,7 @@ var size = function (list) {
 // first([9, 0, 4, 7, 2]);
 // => 9
 
-var first = function (list) {
+var first = function(list) {
     return list[0];
 };
 
@@ -88,7 +89,7 @@ var first = function (list) {
 // last([8, 2, 1, 7, 3]);
 // => 3
 
-var last = function (list) {
+var last = function(list) {
     return list[list.length - 1];
 };
 
@@ -102,11 +103,13 @@ var last = function (list) {
 // => false
 
 function isEven(value) {
-    if (value % 2 === 0) {
-        return true;
-    }
-    return false;
-};
+    return value % 2 === 0;
+
+    // if (value % 2 === 0) {
+    //     return true;
+    // }
+    // return false;
+}
 
 // Создать функцию indexOf которая вернёт позицию, на которой находится элемент value в массиве array, или -1, если данный элемент не был найден.
 // Пример работы:
@@ -117,7 +120,7 @@ function isEven(value) {
 // indexOf([7, 2, 3], 5);
 // => -1
 
-var indexOf = function (array, value) {
+var indexOf = function(array, value) {
     var index = 0;
     while (index < array.length) {
         if (array[index] === value) {
@@ -136,48 +139,45 @@ var indexOf = function (array, value) {
 // lastIndexOf([1, 2, 3, 1, 2, 3], 3);
 // => 5
 
-var lastIndexOf = function (array, value) {
-    return array.lastIndexOf(value);
-}
+var lastIndexOf = function(array, value) {
+    //TODO  index--;
+};
 
 // Создать функцию push которая принимает массив и произвольное значение и возвращает копию массива + произвольное значение (которое находится в конце массива)
 // Пример работы:
 // push([1, 2, 3, 4], 5);
 // => [1, 2, 3, 4, 5]
 
-var push = function (array, value) {
-    array[array.length] = value;
-    return array;
-}
+var push = function(array, value) {
+    //TODO
+    // создать копию + допушить в копию
+};
 
 // Создать функцию unshift которая принимает массив и произвольное значение и возвращает копию массива + произвольное значение (которое находится в начале массива)
 // Пример работы:
 // unshift([1, 2, 3, 4], 5);
 // => [5, 1, 2, 3, 4]
 
-var unshift = function (array, value) {
-    array.unshift(value);
-    return array;
-}
+var unshift = function(array, value) {
+    //TODO
+};
 
 // Создать функцию pop которая принимает массив и возвращает копию массива без последнего значения.
 // Пример работы:
 // pop([1, 2, 3, 4]);
 // => [1, 2, 3]
 
-var pop = function (array) {
-    array.pop();
-    return array;
-}
+var pop = function(array) {
+    //TODO
+};
 
 // Создать функцию shift которая принимает массив и возвращает копию массива без первого значения.
 // Пример работы:
 // shift([1, 2, 3, 4]);
 // => [2, 3, 4]
 
-var shift = function (array) {
-    array.shift();
-    return array;
+var shift = function(array) {
+    //TODO
 };
 
 // Создать функцию getPositiveNumbers которая принимает массив чисел и возвращает массив положительных чисел найденных в исходном массиве.
@@ -185,10 +185,8 @@ var shift = function (array) {
 // getPositiveNumbers([10, -5, 100, -2, 1000]);
 // => [10, 100, 1000]
 
-var getPositiveNumbers = function (array) {
-    return array.filter(function (value) {
-        return value > 0;
-    });
+var getPositiveNumbers = function(array) {
+    //TODO
 };
 
 // Создать функцию reverse которая принимает массив и возвращает копию входящего массива с элементами в обратном порядке.
@@ -196,17 +194,17 @@ var getPositiveNumbers = function (array) {
 // reverse([1, 'lol', 5, {}, []]);
 // => [[], {}, 5, "lol", 1]
 
-var reverse = function (array) {
-    return array.reverse();
-}
+var reverse = function(array) {
+    //TODO
+};
 
 // Создать функцию compact которая принимает в качестве единственного входящего параметра массив произвольных значений и возвращает копию массива без undefined значений.
 // Пример работы:
 // compact([10, 1, 4, 2, undefined, 3, null]);
 // => [10, 1, 4, 2, 3, null]
 
-var compact = function (array) {
-    return array.filter(Boolean);
+var compact = function(array) {
+    //TODO
 };
 
 // Создать функцию contains которая принимает два входящих параметра (массив значений простых типов данных и значение простого типа данных).
@@ -215,7 +213,7 @@ var compact = function (array) {
 // contains([1, 2, 3], 3);
 // => true
 
-var contains = function (list, value) {
+var contains = function(list, value) {
     var index = 0;
     while (index < list.length) {
         if (list[index] === value) {
@@ -231,31 +229,27 @@ var contains = function (list, value) {
 // without([3, 6, 7, 'rere'], 6);
 // => [3, 7, 'rere']
 
-var without = function (array, value) {
-    var number = array.indexOf(value);
-    if (number >= 0) {
-        array.splice(number, 1);
-    }
-    return array;
-}
+var without = function(array, value) {
+    //TODO
+};
 
 // Создать функцию concat которая принимает два массива и возвращает новый массив состоящий из значений первого и второго.
 // Пример работы:
 // concat(['a', 'b', 'c'], ['d', 'e', 'f']);
 // => [ "a", "b", "c", "d", "e", "f" ]
 
-var concat = function (arr1, arr2) {
-    return arr1.concat(arr2);
-}
+var concat = function(arr1, arr2) {
+    //TODO
+};
 
 // Создать функцию slice которая принимает 3 параметра. Массив и два числа (begin и end). Возвращает копию части исходного массива. Начиная с индекса begin и заканчивая индексом end включительно (или концом массива если параметр end отстутствует).
 // Пример работы:
 // slice(['ant', 'bison', 'camel', 'duck', 'elephant'], 2, 3);
 // => ['camel', 'duck']
 
-var slice = function (array, begin, end) {
-    return array.slice(begin, end + 1);
-}
+var slice = function(array, begin, end) {
+    //TODO
+};
 
 // Создать функцию getMatrixSum которая принимает матрицу чисел и возвращает сумму всех чисел.
 // Пример работы:
@@ -273,14 +267,14 @@ var slice = function (array, begin, end) {
 // getMatrixSumByDiagonal(matrix);
 // => 3 (1 + 0 + 2)
 
-var getMatrixSumByDiagonal = function (matrix) {
-    var sumDiagonals = {value: 0};
+var getMatrixSumByDiagonal = function(matrix) {
+    var sum = 0;
     var index = 0;
     while (index < matrix.length) {
-        sumDiagonals.value += matrix[index][index];
+        sum += matrix[index][index];
         index++;
     }
-    return sumDiagonals;
+    return sum;
 };
 
 // Создать функцию min которая принимает в качестве единственного входящего параметра массив чисел и возвращает наименьшее из них.
@@ -288,44 +282,42 @@ var getMatrixSumByDiagonal = function (matrix) {
 // min([10, 5, 100, 2, 1000]);
 // => 2
 
-var min = function (list) {
-    var index = 0;
-    var minNumb = list[0];
-    return minNumb;
-}
+var min = function(list) {
+    //TODO
+};
 
 // Создать функцию max которая принимает в качестве единственного входящего параметра массив чисел и возвращает наибольшее из них.
 // Пример работы:
 // max([10, 5, 100, 2, 1000]);
 // => 1000
 
-var max = function (list) {
-    var index = 0;
-    var maxNumb = list[0];
+var max = function(list) {
+    var index = 1;
+    var max = list[0];
     while (index < list.length) {
-        if (list[index] > maxNumb) {
-            maxNumb = list[index];
+        if (list[index] > max) {
+            max = list[index];
         }
         index++;
     }
-    return maxNumb;
-}
+    return max;
+};
 
 // Создать функцию repeat которая принимает строку и число count и возвращает новую строку, содержащую указанное количество соединённых вместе копий строки.
 // Пример работы:
 // repeat('Work', 6);
 // => 'WorkWorkWorkWorkWorkWork'
 
-var repeat = function (item, value) {
-    return item.repeat(value);
-}
+var repeat = function(item, count) {
+    //TODO
+};
 
 // Создать функцию sum которая принимает массив чисел и возвращает их сумму.
 // Пример работы:
 // sum([2, 2, 3]);
 // => 7
 
-var sum = function (list) {
+var sum = function(list) {
     var index = 0;
     var total = 0;
     while (index < list.length) {
@@ -340,24 +332,24 @@ var sum = function (list) {
 // multiply([2, 2, 3]);
 // => 12
 
-var multiply = function (array) {
+var multiply = function(array) {
     var index = 0;
-    var number = array[0];
+    var total = 1;
     while (index < array.length) {
-        number *= array[index];
+        total *= array[index];
         index++;
     }
-    return number / 2;
-}
+    return total;
+};
 
 // Создать функцию abs которая принимает число и возвращает его модуль (абсолютная величина, неотрицательное число).
 // Пример работы:
 // abs(-4);
 // => 4
 
-var abs = function (value) {
-    return Math.abs(value);
-}
+var abs = function(value) {
+    //TODO
+};
 
 // Создать функцию pow которая принимает два числа и возводит первое число в степень (представленную вторым числом).
 // Пример работы:
@@ -366,11 +358,16 @@ var abs = function (value) {
 // pow(3, 3);
 // => 27
 
-var pow = function (v1, v2) {
-    return Math.pow(v1, v2);
-}
+var pow = function(value, exp) {
+    //TODO
+};
 
 // Создать такие структуры данных чтобы выражение
 // dro[1]().bro вернуло в качестве результата значение true,
 // выражение a[4][1][1].y вернуло строку 'Север',
 // выражение b.y().y.z()[3].autor вернуло строку 'Дима'.
+var dro;
+
+var a;
+
+var b;
