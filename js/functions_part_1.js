@@ -102,14 +102,14 @@ var last = function(list) {
 // isEven(7);
 // => false
 
-function isEven(value) {
+var isEven = function(value) {
     return value % 2 === 0;
 
     // if (value % 2 === 0) {
     //     return true;
     // }
     // return false;
-}
+};
 
 // Создать функцию indexOf которая вернёт позицию, на которой находится элемент value в массиве array, или -1, если данный элемент не был найден.
 // Пример работы:
@@ -140,7 +140,15 @@ var indexOf = function(array, value) {
 // => 5
 
 var lastIndexOf = function(array, value) {
-    //TODO  index--;
+    var index = array.length;
+    var i = 0;
+    while (array.length > i) {
+        if (array[index] === value) {
+            return index;
+        }
+        index--;
+    }
+    return -1;
 };
 
 // Создать функцию push которая принимает массив и произвольное значение и возвращает копию массива + произвольное значение (которое находится в конце массива)
@@ -149,8 +157,14 @@ var lastIndexOf = function(array, value) {
 // => [1, 2, 3, 4, 5]
 
 var push = function(array, value) {
-    //TODO
-    // создать копию + допушить в копию
+    var newArr = [];
+    var i = 0;
+    while (i < array.length) {
+        newArr[newArr.length] = array[i];
+        i++;
+    }
+    newArr[newArr.length] = value;
+    return newArr;
 };
 
 // Создать функцию unshift которая принимает массив и произвольное значение и возвращает копию массива + произвольное значение (которое находится в начале массива)
@@ -159,7 +173,14 @@ var push = function(array, value) {
 // => [5, 1, 2, 3, 4]
 
 var unshift = function(array, value) {
-    //TODO
+    var newArr = [];
+    var i = 0;
+    newArr[newArr.length] = value;
+    while (i < array.length) {
+        newArr[newArr.length] = array[i];
+        i++;
+    }
+    return newArr;
 };
 
 // Создать функцию pop которая принимает массив и возвращает копию массива без последнего значения.
@@ -168,7 +189,13 @@ var unshift = function(array, value) {
 // => [1, 2, 3]
 
 var pop = function(array) {
-    //TODO
+    var newArr = [];
+    var i = 0;
+    while (i < array.length - 1) {
+        newArr[newArr.length] = array[i];
+        i++;
+    }
+    return newArr;
 };
 
 // Создать функцию shift которая принимает массив и возвращает копию массива без первого значения.
@@ -177,7 +204,13 @@ var pop = function(array) {
 // => [2, 3, 4]
 
 var shift = function(array) {
-    //TODO
+    var newArr = [];
+    var i = 1;
+    while (i < array.length) {
+        newArr[newArr.length] = array[i];
+        i++;
+    }
+    return newArr;
 };
 
 // Создать функцию getPositiveNumbers которая принимает массив чисел и возвращает массив положительных чисел найденных в исходном массиве.
@@ -186,7 +219,15 @@ var shift = function(array) {
 // => [10, 100, 1000]
 
 var getPositiveNumbers = function(array) {
-    //TODO
+    var newArr = [];
+    var i = 0;
+    while (i < array.length) {
+        if (array[i] >= 0) {
+            newArr[newArr.length] = array[i];
+        }
+        i++;
+    }
+    return newArr;
 };
 
 // Создать функцию reverse которая принимает массив и возвращает копию входящего массива с элементами в обратном порядке.
@@ -195,7 +236,13 @@ var getPositiveNumbers = function(array) {
 // => [[], {}, 5, "lol", 1]
 
 var reverse = function(array) {
-    //TODO
+    var newArr = [];
+    var i = array.length - 1;
+    while (i >= 0) {
+        newArr[newArr.length] = array[i];
+        i--;
+    }
+    return newArr;
 };
 
 // Создать функцию compact которая принимает в качестве единственного входящего параметра массив произвольных значений и возвращает копию массива без undefined значений.
@@ -204,7 +251,15 @@ var reverse = function(array) {
 // => [10, 1, 4, 2, 3, null]
 
 var compact = function(array) {
-    //TODO
+    var newArr = [];
+    var i = 0;
+    while (i < array.length) {
+        if (array[i] !== undefined) {
+            newArr[newArr.length] = array[i];
+        }
+        i++;
+    }
+    return newArr;
 };
 
 // Создать функцию contains которая принимает два входящих параметра (массив значений простых типов данных и значение простого типа данных).
@@ -230,7 +285,15 @@ var contains = function(list, value) {
 // => [3, 7, 'rere']
 
 var without = function(array, value) {
-    //TODO
+    var newArr = [];
+    var i = 0;
+    while (i < array.length) {
+        if (array[i] !== value) {
+            newArr[newArr.length] = array[i];
+        }
+        i++;
+    }
+    return newArr;
 };
 
 // Создать функцию concat которая принимает два массива и возвращает новый массив состоящий из значений первого и второго.
@@ -239,7 +302,18 @@ var without = function(array, value) {
 // => [ "a", "b", "c", "d", "e", "f" ]
 
 var concat = function(arr1, arr2) {
-    //TODO
+    var newArr = [];
+    var i = 0;
+    var b = 0;
+    while (i < arr1.length) {
+        newArr[newArr.length] = arr1[i];
+        i++;
+    }
+    while (b < arr2.length) {
+        newArr[newArr.length] = arr2[b];
+        b++;
+    }
+    return newArr;
 };
 
 // Создать функцию slice которая принимает 3 параметра. Массив и два числа (begin и end). Возвращает копию части исходного массива. Начиная с индекса begin и заканчивая индексом end включительно (или концом массива если параметр end отстутствует).
@@ -248,7 +322,16 @@ var concat = function(arr1, arr2) {
 // => ['camel', 'duck']
 
 var slice = function(array, begin, end) {
-    //TODO
+    var newArr = [];
+    var i = begin;
+    while (i <= end) {
+        if (end === undefined) {
+            end = array.length - 1;
+        }
+        newArr[newArr.length] = array[i];
+        i++;
+    }
+    return newArr;
 };
 
 // Создать функцию getMatrixSum которая принимает матрицу чисел и возвращает сумму всех чисел.
@@ -256,6 +339,20 @@ var slice = function(array, begin, end) {
 // getMatrixSum([[1, 2], [0, 4], [1, 2]]);
 // => 10
 
+var getMatrixSum = function(matrix) {
+    var sum = 0;
+    var i = 0;
+    var b = 0;
+    while (i < matrix.length) {
+        b = 0;
+        while (b < matrix[i].length) {
+            sum += matrix[i][b];
+            b++;
+        }
+        i++;
+    }
+    return sum;
+};
 
 // Создать функцию getMatrixSumByDiagonal которая принимает квадратную матрицу чисел и возвращает сумму чисел по диагонали (слева направо, сверху вниз).
 // Пример работы:
@@ -283,7 +380,15 @@ var getMatrixSumByDiagonal = function(matrix) {
 // => 2
 
 var min = function(list) {
-    //TODO
+    var index = 1;
+    var min = list[0];
+    while (index < list.length) {
+        if (list[index] < min) {
+            min = list[index];
+        }
+        index++;
+    }
+    return min;
 };
 
 // Создать функцию max которая принимает в качестве единственного входящего параметра массив чисел и возвращает наибольшее из них.
@@ -308,8 +413,14 @@ var max = function(list) {
 // repeat('Work', 6);
 // => 'WorkWorkWorkWorkWorkWork'
 
-var repeat = function(item, count) {
-    //TODO
+var repeat = function(string, count) {
+    var result = '';
+    var i = 0;
+    while (i < count) {
+        result += string;
+        count--;
+    }
+    return result;
 };
 
 // Создать функцию sum которая принимает массив чисел и возвращает их сумму.
@@ -348,7 +459,12 @@ var multiply = function(array) {
 // => 4
 
 var abs = function(value) {
-    //TODO
+    if (value >= 0) {
+        return value;
+    } else {
+        value *= -1;
+        return value;
+    }
 };
 
 // Создать функцию pow которая принимает два числа и возводит первое число в степень (представленную вторым числом).
@@ -359,15 +475,35 @@ var abs = function(value) {
 // => 27
 
 var pow = function(value, exp) {
-    //TODO
+    var result = value;
+    var i = 1;
+    while (i < exp) {
+        result *= value;
+        i++;
+    }
+    return result;
 };
 
 // Создать такие структуры данных чтобы выражение
 // dro[1]().bro вернуло в качестве результата значение true,
 // выражение a[4][1][1].y вернуло строку 'Север',
 // выражение b.y().y.z()[3].autor вернуло строку 'Дима'.
-var dro;
 
-var a;
+var dro = [0, function() {
+    return {bro: true};
+}];
 
-var b;
+var a = [0, 1, 2, 3, [4, [5, {y: 'Север'}]]];
+
+var b = {
+    y: function() {
+        return {
+            y: {
+                z: function() {
+                    return [0, 1, 2, {autor: 'Дима'}];
+                }
+            }
+        };
+    }
+
+};
