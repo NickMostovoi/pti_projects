@@ -10,8 +10,8 @@
 // => ["one", "two", "three"]
 var keys = function(obj) {
     var newArr = [];
-    for (var keys in obj) {
-        newArr[newArr.length] = keys;
+    for (var key in obj) {
+        newArr[newArr.length] = key;
     }
     return newArr;
 };
@@ -22,8 +22,8 @@ var keys = function(obj) {
 // => [1, 2, 3]
 var values = function(obj) {
     var newArr = [];
-    for (var values in obj) {
-        newArr[newArr.length] = obj[values];
+    for (var key in obj) {
+        newArr[newArr.length] = obj[key];
     }
     return newArr;
 };
@@ -34,8 +34,8 @@ var values = function(obj) {
 // => [["one", 1], ["two", 2], ["three", 3]]
 var pairs = function(obj) {
     var newArr = [];
-    for (var keys in obj) {
-        newArr[newArr.length] = [keys, obj[keys]];
+    for (var key in obj) {
+        newArr[newArr.length] = [key, obj[key]];
     }
     return newArr;
 };
@@ -47,8 +47,8 @@ var pairs = function(obj) {
 // => {Moses: "Moe", Louis: "Larry", Jerome: "Curly"}
 var invert = function(obj) {
     var res = {};
-    for (var prop in obj) {
-        res[obj[prop]] = prop;
+    for (var key in obj) {
+        res[obj[key]] = key;
     }
     return res;
 };
@@ -57,10 +57,10 @@ var invert = function(obj) {
 // Пример работы:
 // omit({name: 'moe', age: 50, userid: 'moe1'}, 'userid');
 // => {name: 'moe', age: 50}
-var omit = function(obj, val) {
+var omit = function(obj, prop) {
     var newObj = {};
     for (var key in obj) {
-        if (key !== val) {
+        if (key !== prop) {
             newObj[key] = obj[key];
         }
     }
@@ -71,10 +71,9 @@ var omit = function(obj, val) {
 // Пример работы:
 // has({a: 1, b: 2, c: 3}, 'b');
 // => true
-var has = function(obj, val) {
-    var prop;
-    for (prop in obj) {
-        if (prop === val) {
+var has = function(obj, prop) {
+    for (var key in obj) {
+        if (key === prop) {
             return true;
         }
     }
