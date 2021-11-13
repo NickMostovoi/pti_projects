@@ -140,7 +140,14 @@ var indexOf = function(array, value) {
 // => 5
 
 var lastIndexOf = function(array, value) {
-    //TODO
+    var index = array.length - 1;
+    while (index >= 0) {
+        if (array[index] === value) {
+            return index;
+        }
+        index--;
+    }
+    return -1;
 };
 
 // Создать функцию push которая принимает массив и произвольное значение и возвращает копию массива + произвольное значение (которое находится в конце массива)
@@ -316,7 +323,20 @@ var concat = function(arr1, arr2) {
 // => ['camel', 'duck']
 
 var slice = function(array, begin, end) {
-    //TODO
+    var newArr = [];
+    if (begin <= end) {
+        while (begin <= end) {
+            newArr[newArr.length] = array[begin];
+            begin++;
+        }
+        return newArr;
+    } else {
+        while (begin <= array.length - 1) {
+            newArr[newArr.length] = array[begin];
+            begin++;
+        }
+        return newArr;
+    }
 };
 
 // Создать функцию getMatrixSum которая принимает матрицу чисел и возвращает сумму всех чисел.
