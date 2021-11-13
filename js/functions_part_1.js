@@ -323,20 +323,16 @@ var concat = function(arr1, arr2) {
 // => ['camel', 'duck']
 
 var slice = function(array, begin, end) {
-    var newArr = [];
-    if (begin <= end) {
-        while (begin <= end) {
-            newArr[newArr.length] = array[begin];
-            begin++;
-        }
-        return newArr;
-    } else {
-        while (begin <= array.length - 1) {
-            newArr[newArr.length] = array[begin];
-            begin++;
-        }
-        return newArr;
+    var result = [];
+    var index = begin;
+    end = (end === undefined) ? array.length - 1 : end;
+
+    while (index <= end) {
+        result[result.length] = array[index];
+        index++;
     }
+
+    return result;
 };
 
 // Создать функцию getMatrixSum которая принимает матрицу чисел и возвращает сумму всех чисел.
