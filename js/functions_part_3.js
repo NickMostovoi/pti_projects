@@ -30,7 +30,7 @@ var map = function(arr, iteratee) {
         i++;
     }
     return newArr;
-}
+};
 
 // Создать функцию findIndex с двумя входными параметрами (массив и функция predicate). Функция findIndex так же как и indexOf, возвращает первый индекс того значения, для которого функция predicate вернёт true. Если такой элемент не был найден, вернёт -1.
 // Пример работы:
@@ -59,7 +59,7 @@ var find = function(list, predicate) {
         }
         i++;
     }
-}
+};
 
 // Создать функцию filter с двумя входными параметрами (массив list и функция predicate) которая проходит через каждое значение list, возвращая массив всех значений, для которых predicate вернул true.
 // Пример работы:
@@ -70,12 +70,12 @@ var filter = function(list, predicate) {
     var newList = [];
     while (i < list.length) {
         if (predicate(list[i])) {
-            newList[newList.length] = list[i]
+            newList[newList.length] = list[i];
         }
         i++;
     }
     return newList;
-}
+};
 
 // Создать функцию reject с двумя входными параметрами (массив list и функция predicate) которая возвращает массив, содержащий все значения list, за исключением элементов, для которых функция predicate вернула значение true. Т.е. reject является «антонимом» filter.
 // Пример работы:
@@ -85,13 +85,13 @@ var reject = function(list, predicate) {
     var i = 0;
     var newList = [];
     while (i < list.length) {
-        if (predicate(list[i])) {
-            newList[newList.length] = list[i]
+        if (!predicate(list[i])) {
+            newList[newList.length] = list[i];
         }
         i++;
     }
     return newList;
-}
+};
 
 // Создать функцию every с двумя входными параметрами (массив list и функция predicate). Вернёт true, если для каждого значения из list predicate вернёт true, иначе false.
 // Пример работы:
@@ -106,7 +106,7 @@ var every = function(list, predicate) {
         i++;
     }
     return true;
-}
+};
 
 // Создать функцию some с двумя входными параметрами (массив list и функция predicate). Вернёт true, если хотя бы для одного значения из list predicate вернёт true, иначе false.
 // Пример работы:
@@ -121,7 +121,7 @@ var some = function(list, predicate) {
         i++;
     }
     return false;
-}
+};
 
 // Создать функцию partition с двумя входными параметрами (массив array и функция predicate). Разобъёт массив array на две части: одна - для элементов которой функция predicate вернёт true, и другая - для всех остальных.
 // Пример работы:
@@ -133,9 +133,9 @@ var partition = function(array, predicate) {
     var arr2 = [];
     while (i < array.length) {
         if (predicate(array[i])) {
-            arr1[arr1.length] = array[i]
+            arr1[arr1.length] = array[i];
         } else {
-            arr2[arr2.length] = array[i]
+            arr2[arr2.length] = array[i];
         }
         i++;
     }
