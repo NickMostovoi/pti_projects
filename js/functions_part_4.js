@@ -143,35 +143,31 @@ Object.prototype.pairs = function() {
     return newArr;
 };
 
-Object.prototype.extend = function() {
-    var arr = [];
-    for (var key in this) {
-        arr[key] = this[key];
+Object.prototype.extend = function(source) {
+    for (var key in source) {
+        this[key] = source[key];
     }
-    return arr;
+    return this;
 };
 
 // Создать функцию charAt которая принимает строку и индекс и возвращает указанный символ из строки.
 // Пример работы:
 // charAt('March', 0);
 // => 'M'
-var charAt = function(string, ind) {
-    return string[ind];
+var charAt = function(string, index) {
+    return string[index];
 };
 
 // Создать функцию trim которая удаляет пробельные символы с начала и конца строки.
 // Пример работы:
 // trim('   Hello world!   ');
 // => 'Hello world!'
-var trim = function(string) {
+var trim = function(string) {// TODO:
     var newStr = '';
     var i = 0;
-    while (i < string.length) {
-        if (string[i] !== ' ') {
-            newStr += string[i];
-        }
-        i++;
-    }
+    // узнать индекс первого непробельного символа (.indexOf)
+    // узнать индекс последнего непробельного символа (.lastIndexOf)
+    // скопировать from begin to end (как slice)
     return newStr;
 };
 // как не удалять пробел в центре
@@ -182,12 +178,18 @@ var trim = function(string) {
 // => "1,lol,5,dro"
 // join([1, 'lol', 5, 'dro'], '+');
 // => "1+lol+5+dro"
-var join = function(arr, val) {
+var join = function(arr, separator) {
     var newStr = '';
-    val = val === undefined ? ',' : val;
+    separator = separator === undefined ? ',' : separator;
     var i = 0;
     while (i < arr.length) {
-        newStr += arr[i] + (i === arr.length - 1 ? '' : val)
+        newStr += arr[i] + (i === arr.length - 1 ? '' : separator);
+
+        // newStr += arr[i];
+        // if (i < arr.length - 1) {
+        //     newStr += separator;
+        // }
+
         i++;
     }
     return newStr;
@@ -248,7 +250,7 @@ arr.shift();
 arr.slice(0, 2);
 arr.splice(2, 1);
 arr.unshift(9);
-arr.length
+arr.length;
 arr.sort();
 
 var arr = [2, 5, 7, 5, 6, 3, 9];
@@ -257,10 +259,14 @@ arr.map(function(num) {
     return num + 2;
 });
 
+// arr.filter(function(num) {
+//     if (num >= 5) {
+//         return arr;
+//     }
+// });
+
 arr.filter(function(num) {
-    if (num >= 5) {
-        return arr;
-    }
+    return num >= 5;
 });
 
 arr.every(min);
@@ -278,7 +284,7 @@ var reducer = function (previousValue, currentValue) {
     return previousValue + currentValue;
 };
 
-arr.reduceRight(reduceRight)
+arr.reduceRight(reduceRight);
 var reduceRight = function (previousValue, currentValue) {
     return previousValue + currentValue;
 };
@@ -295,3 +301,5 @@ Object.entries(arr);
 var object = new Object();
 object.prop = 'str';
 object.hasOwnProperty('prop');
+
+// TODO: function
