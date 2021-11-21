@@ -162,15 +162,31 @@ var charAt = function(string, index) {
 // Пример работы:
 // trim('   Hello world!   ');
 // => 'Hello world!'
-var trim = function(string) {// TODO:
+var trim = function(string) {
     var newStr = '';
+    var beg;
+    var end;
+    var i = string.length - 1;
+    while (i >= 0) {
+        if (string[i] !== ' ') {
+            beg = i;
+        }
+        i--;
+    }
     var i = 0;
-    // узнать индекс первого непробельного символа (.indexOf)
-    // узнать индекс последнего непробельного символа (.lastIndexOf)
-    // скопировать from begin to end (как slice)
+    while (i < string.length) {
+        if (string[i] !== ' ') {
+            end = i;
+        }
+        i++;
+    }
+    var j = beg;
+    while (j <= end) {
+        newStr += string[j]
+        j++;
+    }
     return newStr;
 };
-// как не удалять пробел в центре
 
 // Создать функцию join которая принимает массив и возвращает строку состоящую из его элементов разделенных запятой (по-умолчанию) или любым другим разделителем (строкой) указанным во втором аргументе вызываемой функции.
 // Пример работы:
@@ -251,7 +267,10 @@ arr.slice(0, 2);
 arr.splice(2, 1);
 arr.unshift(9);
 arr.length;
-arr.sort();
+arr.sort(function(a, b) {
+    return a - b;
+    // return b - a;
+});
 
 var arr = [2, 5, 7, 5, 6, 3, 9];
 
@@ -259,14 +278,8 @@ arr.map(function(num) {
     return num + 2;
 });
 
-// arr.filter(function(num) {
-//     if (num >= 5) {
-//         return arr;
-//     }
-// });
-
-arr.filter(function(num) {
-    return num >= 5;
+arr.filter(function(el) {
+    return el >= 5;
 });
 
 arr.every(min);
@@ -290,16 +303,35 @@ var reduceRight = function (previousValue, currentValue) {
 };
 
 // Object
-var arr = ['a', 'b', 'c'];
-Object.keys(arr);
-Object.values(arr);
-Object.create(arr);
-Object.assign(arr);
-Object.entries(arr);
+var obj = {
+    x: 5,
+    y: 7
+};
+Object.keys(obj);
+Object.values(obj);
+Object.create({obj}, { j: { value: 2 }});
+Object.assign({x:3, y:4, j:9}, {j:5});
+Object.entries(obj);
 
 // Object.prototype
 var object = new Object();
 object.prop = 'str';
 object.hasOwnProperty('prop');
 
-// TODO: function
+// Function.prototype
+var chel = {
+    x:"Igor",
+    y: "B"
+};
+
+var f = function() {
+    return this.x + " " + this.y;
+};
+f.call(chel);
+
+var object1 = function(val) {
+        return this.x + " " + this.y + " - " + val;
+};
+object1.apply(chel, ["proveril domashky"]);
+
+var k = object1.bind(chel);
