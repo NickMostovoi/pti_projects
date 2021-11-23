@@ -30,9 +30,9 @@ var getMatrixSum = function(matrix) {
 // [1,3,5,7].includes(3);
 // [1,3,5,7].indexOf(5);
 // [1,3,5,7].join('/');
-Array.prototype.includes.apply([1,3,5,7], [3])
-Array.prototype.indexOf.call([1,3,5,7], 5)
-Array.prototype.join.apply([1,3,5,7], ['/'])
+[].includes.apply([1,3,5,7], [3]);
+Array.prototype.indexOf.call([1,3,5,7], 5);
+Array.prototype.join.apply([1,3,5,7], ['/']);
 
 // Создать функцию sumOfAllArguments которая принимает произвольное количество чисел и возвращает их сумму.
 // Пример работы:
@@ -44,7 +44,7 @@ var sumOfAllArguments = function() {
     var sum = 0;
     var args = [].slice.call(arguments);
     args.forEach(function(el) {
-        sum += el
+        sum += el;
     });
     return sum;
 };
