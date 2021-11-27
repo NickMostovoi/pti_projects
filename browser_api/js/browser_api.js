@@ -69,10 +69,10 @@ document.querySelector('.b13').addEventListener('click', function() {
 // При изменении размеров окна вкладки или браузера изменять фоновый цвет абзаца (использовать RGB и Math.random)
 window.addEventListener('resize', function() {
     var round = Math.round, random = Math.random, num = 255;
-    var color1 = round(random()*num);
-    var color2 = round(random()*num);
-    var color3 = round(random()*num);
-    document.querySelector('.t99').style.backgroundColor = 'rgb('+color1+', '+color2+', '+color3+')';
+    var r = round(random()*num);
+    var g = round(random()*num);
+    var b = round(random()*num);
+    document.querySelector('.t99').style.backgroundColor = 'rgb('+r+', '+g+', '+b+')';
 });
 
 // При изменении значения элемента формы выводить количество символов которое оно содержит
@@ -85,10 +85,10 @@ document.querySelector('.b14').addEventListener('click', function() {
     var newJasmine = document.createElement('div');
     newJasmine.classList.add('whore');
 
-    var nameOfjasmine = document.createElement('div');
-    nameOfjasmine.classList.add('whore-name');
-    nameOfjasmine.innerText = jasmine.name;
-    newJasmine.appendChild(nameOfjasmine);
+    var nameOfJasmine = document.createElement('div');
+    nameOfJasmine.classList.add('whore-name');
+    nameOfJasmine.innerText = jasmine.name;
+    newJasmine.appendChild(nameOfJasmine);
 
     var photoOfjasmine = document.createElement('img');
     photoOfjasmine.src = jasmine.photo;
@@ -185,8 +185,8 @@ for (var i = 0; i < mikki.length; i++) {
         var tile = document.createElement('span');
         tile.classList.add('mikki_tile');
         if (mikki[i][j] === 'X') {
-                tile.style.backgroundColor = '#000';
-            }
+            tile.style.backgroundColor = '#000';
+        }
         mikkiPicture.appendChild(tile);
     }
 }
@@ -228,37 +228,28 @@ document.querySelector('.b18').addEventListener('click', function() {
     }
 });
 
-// slides
-var indexOf = function(array, value) {
-    for (var i = 0; i < array.length; i++) {
-        if (array[i] === value) {
-            return i;
-        }
-    }
-    return -1;
-};
-
+//TODO:
 document.querySelector('.next').addEventListener('click', function() {
-    var allSlides = document.querySelectorAll('.slide');
+    var slides = document.querySelectorAll('.slide');
     var activeSlide = document.querySelector('.slide.active');
-    var activeSlideIdx = indexOf(allSlides, activeSlide);
+    var activeSlideIdx = [].indexOf.call(slides, activeSlide);
 
-    var nextSlideIdx = activeSlideIdx === allSlides.length - 1 ? 0 : ++activeSlideIdx;
-    var next = allSlides[nextSlideIdx];
+    var nextSlideIdx = activeSlideIdx === slides.length - 1 ? 0 : activeSlideIdx+1;
+    var nextSlide = slides[nextSlideIdx];
 
     activeSlide.classList.remove('active');
-    next.classList.add('active');
+    nextSlide.classList.add('active');
 });
 
 // Кликая вопросам я хочу видеть ответы на них
-document.querySelectorAll('.question').forEach(function(e) {
-    e.addEventListener('click', function(e) {
+document.querySelectorAll('.question').forEach(function(question) {
+    question.addEventListener('click', function(e) {
         e.currentTarget.classList.toggle('active');
-    })
+    });
 });
 
 // Кликая по вкладкам я хочу видеть связанное содержимое
-var tabsContent = document.querySelector('.tabs-content');
+var tabsContent = document.querySelector('.tabs-content');//TODO:
 
 document.querySelector('.tabs').addEventListener('click', function(e) {
     tabsContent.querySelector('.active').classList.remove('active');
@@ -277,8 +268,8 @@ document.querySelector('.close').addEventListener('click', function() {
 });
 
 // Отменить действие по-умолчанию при клике на ссылку
-document.querySelector('.link-ebanoe').addEventListener('click', function(element) {
-    element.preventDefault();
+document.querySelector('.link-ebanoe').addEventListener('click', function(e) {
+    e.preventDefault();
 });
 
 // Надоела реклама
