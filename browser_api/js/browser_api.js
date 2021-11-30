@@ -228,7 +228,6 @@ document.querySelector('.b18').addEventListener('click', function() {
     }
 });
 
-//TODO:
 document.querySelector('.next').addEventListener('click', function() {
     var slides = document.querySelectorAll('.slide');
     var activeSlide = document.querySelector('.slide.active');
@@ -241,6 +240,18 @@ document.querySelector('.next').addEventListener('click', function() {
     nextSlide.classList.add('active');
 });
 
+document.querySelector('.previous').addEventListener('click', function() {
+    var slides = document.querySelectorAll('.slide');
+    var activeSlide = document.querySelector('.slide.active');
+    var activeSlideIdx = [].indexOf.call(slides, activeSlide);
+
+    var prevSlideIdx = activeSlideIdx === 0 ? slides.length - 1 : activeSlideIdx-1;
+    var prevSlide = slides[prevSlideIdx];
+
+    activeSlide.classList.remove('active');
+    prevSlide.classList.add('active');
+});
+
 // Кликая вопросам я хочу видеть ответы на них
 document.querySelectorAll('.question').forEach(function(question) {
     question.addEventListener('click', function(e) {
@@ -249,11 +260,17 @@ document.querySelectorAll('.question').forEach(function(question) {
 });
 
 // Кликая по вкладкам я хочу видеть связанное содержимое
-var tabsContent = document.querySelector('.tabs-content');//TODO:
+var tabsContent = document.querySelector('.tabs-content');
+var tabs = document.querySelector('.tabs');
 
-document.querySelector('.tabs').addEventListener('click', function(e) {
-    tabsContent.querySelector('.active').classList.remove('active');
-    tabsContent.querySelector('[data-tab="' + e.target.dataset.tab + '"]').classList.add('active');
+tabs.addEventListener('click', function(e) {
+    if (e.target.className === 'item') {
+        tabs.querySelector('.tabs .active').classList.remove('active');
+        e.target.classList.add('active');
+
+        tabsContent.querySelector('.active').classList.remove('active');
+        tabsContent.querySelector('[data-tab="' + e.target.dataset.tab + '"]').classList.add('active');
+    }
 });
 
 // Login
