@@ -228,28 +228,29 @@ document.querySelector('.b18').addEventListener('click', function() {
     }
 });
 
-document.querySelector('.next').addEventListener('click', function() {
+var goTo = function(direction) {//D.R.Y.
     var slides = document.querySelectorAll('.slide');
     var activeSlide = document.querySelector('.slide.active');
     var activeSlideIdx = [].indexOf.call(slides, activeSlide);
+    var nextSlideIdx;
 
-    var nextSlideIdx = activeSlideIdx === slides.length - 1 ? 0 : activeSlideIdx+1;
+    if (direction === 'next') {
+        nextSlideIdx = activeSlideIdx === slides.length - 1 ? 0 : activeSlideIdx + 1;
+    } else {
+        nextSlideIdx = activeSlideIdx === 0 ? slides.length - 1 : activeSlideIdx - 1;
+    }
     var nextSlide = slides[nextSlideIdx];
 
     activeSlide.classList.remove('active');
     nextSlide.classList.add('active');
+};
+
+document.querySelector('.next').addEventListener('click', function() {
+    goTo('next');
 });
 
 document.querySelector('.previous').addEventListener('click', function() {
-    var slides = document.querySelectorAll('.slide');
-    var activeSlide = document.querySelector('.slide.active');
-    var activeSlideIdx = [].indexOf.call(slides, activeSlide);
-
-    var prevSlideIdx = activeSlideIdx === 0 ? slides.length - 1 : activeSlideIdx-1;
-    var prevSlide = slides[prevSlideIdx];
-
-    activeSlide.classList.remove('active');
-    prevSlide.classList.add('active');
+    goTo('previous');
 });
 
 // Кликая вопросам я хочу видеть ответы на них
@@ -265,7 +266,7 @@ var tabs = document.querySelector('.tabs');
 
 tabs.addEventListener('click', function(e) {
     if (e.target.className === 'item') {
-        tabs.querySelector('.tabs .active').classList.remove('active');
+        tabs.querySelector('.active').classList.remove('active');
         e.target.classList.add('active');
 
         tabsContent.querySelector('.active').classList.remove('active');
