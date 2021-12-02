@@ -83,15 +83,13 @@ $('input').on('input', function() {
 $('.b14').on('click', function() {
     var newJasmine = $('<div>').addClass('whore');
 
-    var nameOfJasmine = $('<div>').addClass('whore-name');
-    nameOfJasmine.text(jasmine.name);
+    var nameOfJasmine = $('<div>').addClass('whore-name').text(jasmine.name);
     newJasmine.append(nameOfJasmine);
 
     var photoOfJasmine = $('<img>').attr('src', jasmine.photo);
     newJasmine.append(photoOfJasmine);
 
-    var ageOfJasmine = $('<div>').addClass('whore-age');
-    ageOfJasmine.text('Возраст: ' + jasmine.age);
+    var ageOfJasmine = $('<div>').addClass('whore-age').text('Возраст: ' + jasmine.age);
     newJasmine.append(ageOfJasmine);
 
     var boobsOfJasmine = $('<div>').addClass('whore-boobs');
@@ -139,7 +137,7 @@ $('.b14').on('click', function() {
 
 // Переместить рыбу из первого контейнера во второй (при повторном клике из второго в первый и т.д.)
 $('.b15').on('click', function() {
-    if ($('.cat-container-1 .fish')[0]) {
+    if ($('.cat-container-1 .fish').length) {
         $('.cat-container-2').append($('.fish'));
     } else {
         $('.cat-container-1').append($('.fish'));
@@ -155,9 +153,8 @@ $('.b16').on('click', function() {
 $('.b17').on('click', function() {
     var x = 0;
     var interval = setInterval(function() {
-        var shiftLeft = x + 'px';
         x += 5;
-        $('.skier').css('left', shiftLeft);
+        $('.skier').css('left', x + 'px');
     }, 16);
     $('.b17-2').on('click', function() {
         clearInterval(interval);
@@ -165,15 +162,15 @@ $('.b17').on('click', function() {
 });
 
 // mikki
-$(mikki).each(function(i) {
-    $(mikki).each(function(j) {
+for (var i = 0; i < mikki.length; i++) {
+    for (var j = 0; j < mikki[i].length; j++) {
         var tile = $('<div>').addClass('mikki_tile');
         if (mikki[i][j] === 'X') {
             tile.css('background-color', '#000');
         }
         $('.mikki_tiles').append(tile);
-    });
-});
+    }
+}
 
 // mario
 $('.b18').on('click', function() {
@@ -181,11 +178,8 @@ $('.b18').on('click', function() {
         for (var j = 0; j < map[i].length; j++) {
 
             var tile = $('<div>').addClass('tile');
-            var topOn = i * 16 + 'px';
-            var leftOn = j * 16 + 'px';
-
-            tile.css('top', topOn)
-            tile.css('left', leftOn)
+            tile.css('top', i * 16 + 'px');
+            tile.css('left', j * 16 + 'px');
 
             if (map[i][j] === 'w') {
                 tile.addClass('x_w');
@@ -219,8 +213,8 @@ $('.b18').on('click', function() {
 // next/prev
 $('.next').on('click', function() {
     var slides = $('.slide');
-    var activeSlide = $('.slide.active')[0];
-    var activeSlideIdx = _.indexOf(slides, activeSlide);
+    var activeSlide = $('.slide.active');
+    var activeSlideIdx = slides.index(activeSlide);
 
     var nextSlideIdx = activeSlideIdx === slides.length - 1 ? 0 : activeSlideIdx+1;
     var nextSlide = slides[nextSlideIdx];
@@ -231,8 +225,8 @@ $('.next').on('click', function() {
 
 $('.previous').on('click', function() {
     var slides = $('.slide');
-    var activeSlide = $('.slide.active')[0];
-    var activeSlideIdx = _.indexOf(slides, activeSlide);
+    var activeSlide = $('.slide.active');
+    var activeSlideIdx = slides.index(activeSlide);
 
     var prevSlideIdx = activeSlideIdx === 0 ? slides.length - 1 : activeSlideIdx-1;
     var prevSlide = slides[prevSlideIdx];
@@ -243,15 +237,14 @@ $('.previous').on('click', function() {
 
 // Кликая вопросам я хочу видеть ответы на них
 $('.question').on('click', function() {
-        $(this).toggleClass('active');
+    $(this).toggleClass('active');
 });
 
 // Кликая по вкладкам я хочу видеть связанное содержимое
 $('.tabs .item').on('click', function() {
-        $('.item.active').removeClass('active');
-        $(this).toggleClass('active');
-
-        $('.tabs-content').find('[data-tab=' + $(this).data('tab') + ']').addClass('active');
+    $('.tabs .active, .tabs-content .active').removeClass('active');
+    $(this).addClass('active');
+    $('.tabs-content').find('[data-tab=' + $(this).data('tab') + ']').addClass('active');
 });
 
 // Login
