@@ -179,7 +179,7 @@ document.querySelector('.b17').addEventListener('click', function() {
 });
 
 // mikki
-var mikkiPicture = document.querySelector('.mikki_tiles');
+var mikkiTiles = document.querySelector('.mikki_tiles');
 for (var i = 0; i < mikki.length; i++) {
     for (var j = 0; j < mikki[i].length; j++) {
         var tile = document.createElement('span');
@@ -187,7 +187,7 @@ for (var i = 0; i < mikki.length; i++) {
         if (mikki[i][j] === 'X') {
             tile.style.backgroundColor = '#000';
         }
-        mikkiPicture.appendChild(tile);
+        mikkiTiles.appendChild(tile);
     }
 }
 
