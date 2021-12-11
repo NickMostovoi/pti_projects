@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
     <div class="mainContainer">
 
         <div class="columnLeft">
@@ -21,14 +20,6 @@
                 <div>Шлюх пока нет</div>
             </div>
         </div>
-
-        <script type="text/template" id="girl-template">
-            {{~ it.girls :girl:index}}
-            <div class="girl">
-                <div class="girl-pseudonym-age-price" id="{{= girl.id}}">{{= girl.pseudonym}} {{= girl.age}}, ${{= girl.price}}</div>
-            </div>
-            {{~}}
-        </script>
 
         <div class="columnRight addForm hidden">
             <form class="form">
@@ -43,21 +34,28 @@
         </div>
 
         <div class="columnRight" id="girlInfomation"></div>
-
-        <script type="text/template" id="girlInfomation-template">
-            <form class="formTemp" id="{{= it.id}}">
-                <input name="name" type="text" placeholder="Имя" value="{{= it.name}}">
-                <input name="surname" type="text" placeholder="Фамилия" value="{{= it.surname}}">
-                <input name="pseudonym" type="text" placeholder="Псевдоним" value="{{= it.pseudonym}}">
-                <input name="age" type="text" placeholder="Возраст" value="{{= it.age}}">
-                <input name="price" type="text" placeholder="Цена" value="{{= it.price}}">
-
-                <button type="button" class="deleteButton">Удалить</button>
-                <button type="button" class="refreshButton">Обновить</button>
-            </form>
-        </script>
-
     </div>
+
+    <script type="text/template" id="girl-template">
+        {{~ it.girls :girl:index}}
+            <div class="girl">
+                <div class="girl-pseudonym-age-price" id="{{= girl.id}}">{{= girl.pseudonym}} {{= girl.age}}, ${{= girl.price}}</div>
+            </div>
+        {{~}}
+    </script>
+
+    <script type="text/template" id="girlInfomation-template">
+        <form class="formTemp" id="{{= it.id}}">
+            <input name="name" type="text" placeholder="Имя" value="{{= it.name}}">
+            <input name="surname" type="text" placeholder="Фамилия" value="{{= it.surname}}">
+            <input name="pseudonym" type="text" placeholder="Псевдоним" value="{{= it.pseudonym}}">
+            <input name="age" type="text" placeholder="Возраст" value="{{= it.age}}">
+            <input name="price" type="text" placeholder="Цена" value="{{= it.price}}">
+
+            <button type="button" class="deleteButton">Удалить</button>
+            <button type="button" class="refreshButton">Обновить</button>
+        </form>
+    </script>
 
     <script src="js/main.js"></script>
 </body>

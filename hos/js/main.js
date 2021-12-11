@@ -28,12 +28,12 @@ var validationForm = function() {
             $(this).css('border', '1px solid red');
         } else {
             $(this).css('border', '1px solid green');
-            return counterRightInputs += 1;
+            counterRightInputs += 1;
         }
     });
     
     if (counterRightInputs === 5) {
-        var girls = JSON.parse(localStorage.getItem('girls') || '[]');
+        var girls = JSON.parse(localStorage.getItem('girls')) || [];
 
         var newGirl = {};
         $('.form').find('input').each(function() {
@@ -63,7 +63,7 @@ var mainGirlsFunctions = function() {
 
         var targetResult = girls.filter(function(obj) {
             return obj.id === e.target.id;
-        })
+        });
         var object = targetResult[0];
 
         var girlInfomationTemplate = $('#girlInfomation-template').html();
@@ -75,7 +75,7 @@ var mainGirlsFunctions = function() {
             var whoreId = $(".formTemp").attr('id');
             var newGirls = girls.filter(function(girls) {
                 return girls.id !== whoreId;
-            })
+            });
 
             localStorage.setItem('girls', JSON.stringify(newGirls));
 
@@ -91,7 +91,7 @@ var mainGirlsFunctions = function() {
             var girlId = $('.formTemp').attr('id');
             var targetResult = girls.filter(function(obj) {
                 return obj.id === girlId;
-            })
+            });
             var selectedGirl = targetResult[0];
 
             var newInformationOfGirl = {};
@@ -99,7 +99,7 @@ var mainGirlsFunctions = function() {
                 newInformationOfGirl[this.name] = $(this).val();
             });
 
-            var changedInformationOfGirl = Object.assign(selectedGirl, newInformationOfGirl);
+            Object.assign(selectedGirl, newInformationOfGirl);
 
             localStorage.setItem('girls', JSON.stringify(girls));
 
