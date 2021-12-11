@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+
+.mainContainer {
+    margin: 50px auto;
+    width: 500px;
+    display: flex;
+}
+
+.addButton,
+.saveButton,
+.refreshButton {
+    float: right;
+}
+
+/*-------------------------------------------------- column Left */
+.columnLeft {
+    width: 45%;
+    margin: 10px;
+}
+
+.informationForm {
+    background-color: #bfd9f5;
+    margin: 30px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.girl {
+    display: block;
+    color: #000;
+    text-decoration: none;
+}
+
+.girl:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+/*-------------------------------------------------- column Right */
+.columnRight {
+    width: 45%;
+    background-color: #bfd9f5;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+#girlInfomation:empty {
+    display: none;
+}
