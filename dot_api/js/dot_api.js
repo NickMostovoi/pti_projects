@@ -20,4 +20,3 @@ $('.add-whores').on('click', function() {
 $('.add-movies').on('click', function() {
     $('#movies').html(doT.template($('#movie-template').html())({movies: movies}));
 });
-
