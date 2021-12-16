@@ -3,20 +3,20 @@ var whores = {
 
     add: function(whore) {
         this.models.push(whore);
-        this.setModelsToStorage();
+        $(this).trigger('change');
     },
 
     update: function(updatedWhore) {
         var whore = _.findWhere(this.models, {id: updatedWhore.id});
         _.extend(whore, updatedWhore);
-        this.setModelsToStorage();
+        $(this).trigger('change');
     },
 
     remove: function(whoreId) {
         this.models = _.reject(this.models, function(whore) {
             return whore.id === whoreId;
         });
-        this.setModelsToStorage();
+        $(this).trigger('change');
     },
 
     get: function(whoreId) {
@@ -34,6 +34,7 @@ var whores = {
     init: function() {
         this.models = this.getModelsFromStorage();
         this.setModelsToStorage();
+        $(this).on('change', this.setModelsToStorage.bind(this));
     }
 };
 
@@ -45,16 +46,19 @@ var listView = {
     collection: whores,
 
     subscribe: function() {
-        $('.addButton').on('click', function() {
-            formView.showAddForm();
-        }.bind(this));
+        $('.addButton').on('click', this.handleClickOnAddBtn.bind(this));
+        $('.whoreList').on('click', this.handleClickOnWhore.bind(this));
+    },
 
-        $('.whoreList').on('click', function(e) {
-            if ($(e.target).hasClass('whore')) {
-                var whore = this.collection.get(e.target.id);
-                formView.showEditRemoveForm(whore);
-            }
-        }.bind(this));
+    handleClickOnWhore: function(e) {
+        if ($(e.target).hasClass('whore')) {
+            var whore = this.collection.get(e.target.dataset.id);
+            formView.showEditRemoveForm(whore);
+        }
+    },
+
+    handleClickOnAddBtn: function() {
+        formView.showAddForm();
     },
 
     render: function() {
@@ -64,16 +68,15 @@ var listView = {
     init: function() {
         this.subscribe();
         this.render();
+        $(this.collection).on('change', this.render.bind(this));
     }
 };
 
 listView.init();
 
 var formView = {
-    $fields: $('input[type="text"]'),
-
-    tmplAddForm: doT.template($('#AddFormTemplate').html()),
-    tmplForm: doT.template($('#InfomationFormTemplate').html()),
+    tmplAddForm: doT.template($('#addFormTemplate').html()),
+    tmplEditForm: doT.template($('#editFormTemplate').html()),
 
     collection: whores,
 
@@ -85,16 +88,16 @@ var formView = {
 
     showEditRemoveForm: function(whore) {
         $('.columnRight').removeClass('hidden');
-        $('#InfomationForm').html(doT.template(this.tmplForm(whore)));
+        $('#InfomationForm').html(doT.template(this.tmplEditForm(whore)));
         this.subscribe();
     },
 
-    getFormData: function(whore) {
+    getFormData: function() {
         var whore = {};
-        var uniqId = this.getUniqId();
-        $('input').each(function() {
-            whore.id = uniqId;
-            whore[this.name] = $(this).val();
+        var id = $('.form').data('id');
+        whore.id = id ? id : this.getUniqId();
+        $('.form input').each(function(idx, input) {
+            whore[input.name] = input.value;
         });
         return whore;
     },
@@ -103,32 +106,22 @@ var formView = {
         return '_' + Math.random().toString(36).substr(2, 9);
     },
 
-    updatedWhore: function() {
-        var whore = whores.get($(".form").attr('id'))
-        var updatedWhore = {};
-        $('input').each(function() {
-            updatedWhore[this.name] = $(this).val();
-        });
-        _.extend(whore, updatedWhore);
-        return whore;
-    },
-
     isFormDataValid: function() {
-        return this.$fields.toArray().every(function(field) {
-            return field.value !== '';
+        return $('.form input').toArray().every(function(input) {
+            return input.value !== '';
         });
     },
 
     highlightFields: function() {
-        this.$fields.each(function(index, field) {
-            field.style.border = field.value === '' ? '2px solid red' : '';
+        $('.form input').each(function(idx, input) {
+            input.style.border = input.value === '' ? '2px solid red' : '';
         })
     },
 
     resetForm: function() {
-        $('input').val('');
-        this.$fields.each(function(index, field) {
-            field.style.border = '1px solid #000';
+        $('.form input').val('');
+        $('.form input').each(function(idx, input) {
+            input.style.border = '1px solid #000';
         })
     },
 
@@ -137,32 +130,36 @@ var formView = {
     },
 
     subscribe: function() {
-        $('.saveButton').on('click', function() {
-            if (this.isFormDataValid()) {
-                this.collection.add(this.getFormData());
-                listView.render();
-                this.resetForm();
-                this.hideForm();
-            } else {
-                this.highlightFields();
-            }
-        }.bind(this));
+        $('.saveButton').on('click', this.handleSave.bind(this));
+        $('.deleteButton').on('click', this.handleDelete.bind(this));
+        $('.updateButton').on('click', this.handleUpdate.bind(this));
+    },
 
-        $('.deleteButton').on('click', function() {
-            var id = $(".form").attr('id');
-            this.collection.remove(id);
-            listView.render();
+    handleSave: function() {
+        if (this.isFormDataValid()) {
+            this.collection.add(this.getFormData());
             this.resetForm();
             this.hideForm();
-        }.bind(this));
+        } else {
+            this.highlightFields();
+        }
+    },
 
-        $('.updateButton').on('click', function() {
-            var whore = this.updatedWhore();
-            this.collection.update(whore);
-            listView.render();
+    handleUpdate: function() {
+        if (this.isFormDataValid()) {
+            this.collection.update(this.getFormData());
             this.resetForm();
             this.hideForm();
-        }.bind(this));
+        } else {
+            this.highlightFields();
+        }
+    },
+
+    handleDelete: function() {
+        var id = $('.form').data('id');
+        this.collection.remove(id);
+        this.resetForm();
+        this.hideForm();
     },
 
     init: function() {

@@ -25,14 +25,14 @@
     <script type="text/template" id="whoreTemplate">
         {{? it.length}}
             {{~ it :whore:index}}
-                <div class="whore" id="{{= whore.id}}">{{= whore.pseudonym}} {{= whore.age}}, ${{= whore.price}}</div>
+                <div class="whore" data-id="{{= whore.id}}">{{= whore.pseudonym}} {{= whore.age}}, ${{= whore.price}}</div>
             {{~}}
         {{??}}
             <div>Шлюх пока нет</div>
         {{?}}
     </script>
 
-    <script type="text/template" id="AddFormTemplate">
+    <script type="text/template" id="addFormTemplate">
         <form class="form">
             <input name="name" type="text" placeholder="Имя">
             <input name="surname" type="text" placeholder="Фамилия">
@@ -44,8 +44,8 @@
         </form>
     </script>
 
-    <script type="text/template" id="InfomationFormTemplate">
-        <form class="form" id="{{= it.id}}">
+    <script type="text/template" id="editFormTemplate">
+        <form class="form" data-id="{{= it.id}}">
             <input name="name" type="text" placeholder="Имя" value="{{= it.name}}">
             <input name="surname" type="text" placeholder="Фамилия" value="{{= it.surname}}">
             <input name="pseudonym" type="text" placeholder="Псевдоним" value="{{= it.pseudonym}}">
