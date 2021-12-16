@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Hos with mvc</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/dot.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/underscore.js"></script>
+</head>
+
+<body>
+    <div class="mainContainer">
+
+        <div class="columnLeft">
+            <button type="button" class="addButton">Добавить</button>
+            <div class="whoreList"></div>
+        </div>
+
+        <div class="columnRight hidden" id="InfomationForm"></div>
+
+    </div>
+
+    <script type="text/template" id="whoreTemplate">
+        {{? it.length}}
+            {{~ it :whore:index}}
+                <div class="whore" id="{{= whore.id}}">{{= whore.pseudonym}} {{= whore.age}}, ${{= whore.price}}</div>
+            {{~}}
+        {{??}}
+            <div>Шлюх пока нет</div>
+        {{?}}
+    </script>
+
+    <script type="text/template" id="AddFormTemplate">
+        <form class="form">
+            <input name="name" type="text" placeholder="Имя">
+            <input name="surname" type="text" placeholder="Фамилия">
+            <input name="pseudonym" type="text" placeholder="Псевдоним">
+            <input name="age" type="text" placeholder="Возраст">
+            <input name="price" type="text" placeholder="Цена">
+
+            <button type="button" class="saveButton">Сохранить</button>
+        </form>
+    </script>
+
+    <script type="text/template" id="InfomationFormTemplate">
+        <form class="form" id="{{= it.id}}">
+            <input name="name" type="text" placeholder="Имя" value="{{= it.name}}">
+            <input name="surname" type="text" placeholder="Фамилия" value="{{= it.surname}}">
+            <input name="pseudonym" type="text" placeholder="Псевдоним" value="{{= it.pseudonym}}">
+            <input name="age" type="text" placeholder="Возраст" value="{{= it.age}}">
+            <input name="price" type="text" placeholder="Цена" value="{{= it.price}}">
+
+            <button type="button" class="deleteButton">Удалить</button>
+            <button type="button" class="updateButton">Обновить</button>
+        </form>
+    </script>
+
+    <script src="js/_hos_with_mvc_from_movie.js"></script>
+</body>
+</html>
