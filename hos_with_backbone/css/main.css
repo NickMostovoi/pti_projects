@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+}
+
+.mainContainer {
+    margin: 50px auto;
+    width: 500px;
+    display: flex;
+}
+
+/*-------------------------------------------------- column Left */
+.columnLeft {
+    width: 45%;
+    margin: 10px;
+}
+
+.whoreList {
+    background-color: #bfd9f5;
+    margin: 30px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.whore {
+    display: block;
+    color: #000;
+    text-decoration: none;
+}
+
+.whore:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+/*-------------------------------------------------- column Right */
+.columnRight {
+    width: 45%;
+    background-color: #bfd9f5;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+/*-------------------------------------------------- Buttons */
+.addButton,
+.saveButton,
+.updateButton {
+    float: right;
+}
