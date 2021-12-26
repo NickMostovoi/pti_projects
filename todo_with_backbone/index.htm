@@ -38,10 +38,16 @@
     <script type="text/template" id="tasks-template">
         {{? it.length }}
             {{~ it :task:index }}
-                <div>Пыщ-пыщ</div>
+                <div data-id="{{= task.id}}" class="item {{? task.completed}}completed{{?}} {{? task.important}}important{{?}}">
+                    <span class="title">{{= task.title}}</span>
+                    <div>
+                        <button class="delete">&#10060;</button>
+                        <button class="important">&#128276;</button>
+                    </div>
+                </div>
             {{~}}
         {{??}}
-            Дел пока нет
+            <div>Дел пока нет</div>
         {{?}}
     </script>
 
