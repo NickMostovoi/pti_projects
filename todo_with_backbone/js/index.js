@@ -44,53 +44,79 @@ var ListView = Backbone.View.extend({
     },
 
     handleDoubleClickToComplete: function(e) {
-        var id = e.target.parentNode.dataset.id;
+        var id = $(e.target).closest('.item').attr('data-id');
         var task = this.collection.get(id).toJSON();
         task.completed = !task.completed;
         this.collection.add(task, {merge: true});
-        formView.counterOfTasks();
     },
 
     handleClickToImportant: function(e) {
-        var id = $(e.target).parent().parent().attr('data-id');
+        var id = $(e.target).closest('.item').attr('data-id');
         var task = this.collection.get(id).toJSON();
         task.important = !task.important;
         this.collection.add(task, {merge: true});
     },
 
     handleClickToDeleteTask: function(e) {
-        var id = $(e.target).parent().parent().attr('data-id');
+        var id = $(e.target).closest('.item').attr('data-id');
         this.collection.remove(id);
-        formView.counterOfTasks();
     },
 
-    searchFilter: function() {
-        var searchingText = $('#needle').val();
+    searchFilter: function(tasks) {
+        var searchingText = $('.filters #needle').val();
 
-        return this.collection.toJSON().filter(function(task) {
+        return tasks.filter(function(task) {
             return task.title.includes(searchingText);
-        })
+        });
     },
 
-    actionsFilter: function(e) {
-        var nameOfActions = $('.active').data('filter');
+    actionsFilter: function(tasks) {
+        var filter = $('.actions .active').data('filter');
 
-        return this.collection.toJSON().filter(function(task) {
-            if(nameOfActions === 'incompleted') {
+        return tasks.filter(function(task) {
+            if(filter === 'incompleted') {
                 return task.completed === false;
             }
-            if(nameOfActions === 'completed') {
+
+            if(filter === 'completed') {
                 return task.completed === true;
             }
-            if(nameOfActions === 'all') {
+
+            if(filter === 'all') {
                 return true;
             }
-        })
+        });
+    },
+
+    getFilteredModels: function() {
+        var searchingText = $('.filters #needle').val();
+        var filter = $('.actions .active').data('filter');
+
+        return this.collection.toJSON()
+            .filter(function(task) {
+                return task.title.includes(searchingText);
+            })
+            .filter(function(task) {
+                if(filter === 'incompleted') {
+                    return task.completed === false;
+                }
+
+                if(filter === 'completed') {
+                    return task.completed === true;
+                }
+
+                if(filter === 'all') {
+                    return true;
+                }
+            });
     },
 
     render: function() {
-        var selectedTasks = this.actionsFilter(this.collection.toJSON());
-        this.$el.html(this.tmplFn(selectedTasks));
+        // var tasks = this.collection.toJSON();
+        // tasks = this.searchFilter(tasks);
+        // tasks = this.actionsFilter(tasks);
+        // this.$el.html(this.tmplFn(tasks));
+        this.$el.html(this.tmplFn(this.getFilteredModels()));
     }
 });
 
@@ -101,14 +127,13 @@ var listView = new ListView({
 // **************************************************************** Form View
 var FormView = Backbone.View.extend({
 
-    tmplFn: doT.template($('#tasks-template').html()),
-
     el: '.app',
 
-    $input: $('input.title'),
+    $input: $('.source .title'),
 
     initialize: function() {
         this.counterOfTasks();
+        this.listenTo(this.collection, 'all', this.counterOfTasks);
     },
 
     events: {
@@ -118,7 +143,7 @@ var FormView = Backbone.View.extend({
     },
 
     keydownForAddTask: function(e) {
-        if(e.which  === 13) {
+        if(e.which === 13) {
             if (this.isFormDataValid()) {
                 this.collection.add(this.getFormData());
                 this.resetForm();
@@ -126,16 +151,15 @@ var FormView = Backbone.View.extend({
                 this.highlightField();
             }
         }
-        this.counterOfTasks();
     },
 
     getFormData: function() {
-        var task = {};
-        task.id = this.getUniqId();
-        task.title = this.$input.val();
-        task.completed = false;
-        task.important = false;
-        return task;
+        return {
+            id: this.getUniqId(),
+            title: this.$input.val(),
+            completed: false,
+            important: false
+        };
     },
 
     getUniqId: function() {
@@ -156,19 +180,18 @@ var FormView = Backbone.View.extend({
     },
 
     handleSearch: function() {
-        $('.items').html(this.tmplFn(listView.searchFilter()));
+        listView.render();
     },
 
     handleActions : function(e) {
-        var button = e.target;
         $('.actions button').removeClass('active');
-        $(button).addClass('active');
+        $(e.target).addClass('active');
         listView.render();
     },
 
     counterOfTasks: function() {
-        $('.item-completed').text(this.collection.completedTasksCounter());
-        $('.item-incompleted').text(this.collection.incompletedTasksCounter());
+        $('.stats .item-completed').text(this.collection.completedTasksCounter());
+        $('.stats .item-incompleted').text(this.collection.incompletedTasksCounter());
     }
 });
 
