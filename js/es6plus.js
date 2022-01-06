@@ -85,11 +85,14 @@ var vasya = {
 // });
 
 // TODO: Write your code here
-whores = [...whores, { name: 'Ванесса', age: 22 } ];
+whores = [...whores, { name: 'Ванесса', age: 22 }];
 
 var fruits3 = [...fruits1, ...fruits2];
 
-var person = {...vasya, ...{ age: 31 }};
+var person = {
+    ...vasya,
+    age: 31
+};
 
 // Перепиши определения функций используя стрелочные функции
 // var f1 = function() {};
@@ -127,8 +130,9 @@ class Circle {
     getSquare() {
         return this.radius * this.radius * 3.14;
     }
-};
-var circle = new Circle(3,2,5);
+}
+
+var circle = new Circle(3, 2, 5);
 
 // Перепиши инструкции определения переменных используя деструктурирующее присваивание
 var config = {
@@ -141,4 +145,4 @@ var config = {
 // var port2 = config.port;
 // var dbName = config.dbName !== undefined ? config.dbName : 'default' ;
 
-var {host, port, dbName} = config;
+var {host, port, dbName} = config;//TODO:
