@@ -5,9 +5,9 @@
 //     console.log(a, b);
 // };
 
-// TODO: Write your code here
-
-
+var f = function(a = 7, b = 4) {
+    console.log(a, b);
+};
 
 // Переписать пример используя шаблоннные строки
 var jasmine = {
@@ -35,9 +35,18 @@ var jasmine = {
 //         '<div class="whore-teaser">' + jasmine.teaser + '</div>'+
 //     '</div>';
 
-// TODO: Write your code here
-
-
+var whore =
+    `<div class="whore">
+        <div class="whore-name">${jasmine.name}</div>
+        <img src="${jasmine.photo}" width="200">
+        <div class="whore-age">Возраст: ${jasmine.age}</div>
+        <div class="whore-boobs">Размер груди: ${jasmine.boobs}</div>
+        <div class="whore-height">Рост: ${jasmine.height}</div>
+        <div class="whore-weight">Вес: ${jasmine.weight}</div>
+        <div class="whore-phone">${jasmine.phone}</div>
+        <div class="whore-can-come">Выезд: ${(jasmine.can_come ? '+' : '-')}</div>
+        <div class="whore-teaser">${jasmine.teaser}</div>
+    </div>`;
 
 // Переписать определение объекта используя расширение объектных литералов
 var name = 'Вася';
@@ -47,9 +56,10 @@ var name = 'Вася';
 //     getName: function() { return this.name }
 // };
 
-// TODO: Write your code here
-
-
+var o = {
+    name,
+    getName() { return this.name }
+};
 
 // Перепиши выражения используя оператор ...
 var whores = [
@@ -75,8 +85,11 @@ var vasya = {
 // });
 
 // TODO: Write your code here
+whores = [...whores, { name: 'Ванесса', age: 22 } ];
 
+var fruits3 = [...fruits1, ...fruits2];
 
+var person = {...vasya, ...{ age: 31 }};
 
 // Перепиши определения функций используя стрелочные функции
 // var f1 = function() {};
@@ -87,15 +100,35 @@ var vasya = {
 // };
 // var f4 = function() { return 'Хуй мусорам!'; };
 
-// TODO: Write your code here
-
-
+var f1 = () => {};
+var f2 = (x) => x*x;
+var f3 = (a, b) => {
+    var c = a + b;
+    return c*c;
+};
+var f4 = () => 'Хуй мусорам!';
 
 // Перепиши класс Circle из файла js/functions_part_4.js используя синтаксис классов
+class Circle {
+    constructor(x, y, radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
 
-// TODO: Write your code here
+    getDiameter() {
+        return this.radius * 2;
+    }
 
+    getPerimeter() {
+        return this.radius * 2 * 3.14;
+    }
 
+    getSquare() {
+        return this.radius * this.radius * 3.14;
+    }
+};
+var circle = new Circle(3,2,5);
 
 // Перепиши инструкции определения переменных используя деструктурирующее присваивание
 var config = {
@@ -108,6 +141,4 @@ var config = {
 // var port2 = config.port;
 // var dbName = config.dbName !== undefined ? config.dbName : 'default' ;
 
-// TODO: Write your code here
-
-
+var {host, port, dbName} = config;
