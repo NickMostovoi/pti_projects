@@ -67,7 +67,50 @@
     </p>
 
     <script type="text/babel">
-        // Write your code here
+        $('.add-list-1').on('click', function() {
+            var list = React.createElement('ul', null,
+                    React.createElement('li', null, 'Арахис'),
+                    React.createElement('li', null, 'Кешью'),
+                    React.createElement('li', null, 'Фундук'),
+                    React.createElement('li', null, 'Миндаль')
+                );
+
+            ReactDOM.render(list, document.querySelector('#list-1'));
+        })
+
+        $('.add-list-2').on('click', function() {
+            var UL = function(props) {
+                return (
+                    React.createElement('ul', null,
+                        props.nuts.map((item, idx) => React.createElement('li', {key: idx}, item))
+                    )
+                );
+            };
+
+            var ul = React.createElement(UL, {
+                nuts: ['Арахис', 'Кешью', 'Фундук', 'Миндаль']
+            });
+
+            ReactDOM.render(ul, document.querySelector('#list-2'));
+        })
+
+        $('.add-list-3').on('click', function() {
+            class UL extends React.Component {
+                render() {
+                    return (
+                        React.createElement('ul', null,
+                            this.props.nuts.map((item, idx) => React.createElement('li', {key: idx}, item))
+                        )
+                    );
+                }
+            }
+
+            var ul = React.createElement(UL, {
+                nuts: ['Арахис', 'Кешью', 'Фундук', 'Миндаль']
+            });
+
+            ReactDOM.render(ul, document.querySelector('#list-3'));
+        })
     </script>
 
     <p class="z">
@@ -93,7 +136,50 @@
     </p>
 
     <script type="text/babel">
-        // Write your code here
+        $('.add-list-4').on('click', function() {
+            var list = React.createElement('ul', null,
+                React.createElement('li', null, nuts[0]),
+                React.createElement('li', null, nuts[1]),
+                React.createElement('li', null, nuts[2]),
+                React.createElement('li', null, nuts[3])
+            );
+
+            ReactDOM.render(list, document.querySelector('#list-4'));
+        })
+
+        $('.add-list-5').on('click', function() {
+            var UL = function(props) {
+                return (
+                    React.createElement('ul', null,
+                        props.nuts.map((item, idx) => React.createElement('li', {key: idx}, item))
+                    )
+                );
+            };
+
+            var ul = React.createElement(UL, {
+                nuts: nuts
+            });
+
+            ReactDOM.render(ul, document.querySelector('#list-5'));
+        })
+
+        $('.add-list-6').on('click', function() {
+            class UL extends React.Component {
+                render() {
+                    return (
+                        React.createElement('ul', null,
+                            this.props.nuts.map((item, idx) => React.createElement('li', {key: idx}, item))
+                        )
+                    );
+                }
+            }
+
+            var ul = React.createElement(UL, {
+                nuts: nuts
+            });
+
+            ReactDOM.render(ul, document.querySelector('#list-6'));
+        })
     </script>
 
     <p class="z">
@@ -119,7 +205,50 @@
     </p>
 
     <script type="text/babel">
-        // Write your code here
+        $('.add-list-7').on('click', function() {
+            var list = <ul>
+                <li>Арахис</li>
+                <li>Кешью</li>
+                <li>Фундук</li>
+                <li>Миндаль</li>
+            </ul>;
+
+            ReactDOM.render(list, document.querySelector('#list-7'));
+        })
+
+        $('.add-list-8').on('click', function() {
+            var UL = function(props) {
+                return (
+                    <ul>
+                        {
+                            props.nuts.map((nuts, idx) => <li key={idx}>{nuts}</li>)
+                        }
+                    </ul>
+                );
+            };
+
+            var ul = <UL nuts={['Арахис', 'Кешью', 'Фундук', 'Миндаль']} />;
+
+            ReactDOM.render(ul, document.querySelector('#list-8'));
+        })
+
+        $('.add-list-9').on('click', function() {
+            class UL extends React.Component {
+                render() {
+                    return (
+                        <ul>
+                            {
+                                this.props.nuts.map((nuts, idx) => <li key={idx}>{nuts}</li>)
+                            }
+                        </ul>
+                    );
+                }
+            }
+
+            var ul = <UL nuts={['Арахис', 'Кешью', 'Фундук', 'Миндаль']} />;
+
+            ReactDOM.render(ul, document.querySelector('#list-9'));
+        })
     </script>
 
     <p class="z">
@@ -132,6 +261,12 @@
         <li>Классовый компонент</li>
     </ul>
 
+    <div class="lists">
+        <div id="list-10"></div>
+        <div id="list-11"></div>
+        <div id="list-12"></div>
+    </div>
+
     <p>
         <button class="add-list-10">Без компонентов</button>
         <button class="add-list-11">Функциональный компонент</button>
@@ -139,7 +274,42 @@
     </p>
 
     <script type="text/babel">
-        // Write your code here
+        $('.add-list-10').on('click', function() {
+            var list = <ul>
+                <li>{nuts[0]}</li>
+                <li>{nuts[1]}</li>
+                <li>{nuts[2]}</li>
+                <li>{nuts[3]}</li>
+            </ul>;
+
+            ReactDOM.render(list, document.querySelector('#list-10'));
+        });
+
+        $('.add-list-11').on('click', function() {
+            var UL = function(props) {
+                return (
+                    <ul>
+                        { props.nuts.map((nuts, idx) => <li key={idx}>{nuts}</li>) }
+                    </ul>
+                );
+            };
+
+            ReactDOM.render(<UL nuts={nuts}/>, document.querySelector('#list-11'));
+        })
+
+        $('.add-list-12').on('click', function() {
+            class UL extends React.Component {
+                render() {
+                    return (
+                        <ul>
+                            { this.props.nuts.map((nuts, idx) => <li key={idx}>{nuts}</li>) }
+                        </ul>
+                    );
+                }
+            }
+
+            ReactDOM.render(<UL nuts={nuts}/>, document.querySelector('#list-12'));
+        })
     </script>
 
     <div class="games"><div class="game"><div class="game-flags"><span class="item item-hot">Hot</span></div><img src="images/games/Batman-v-Superman-Dawn-of-Justice-290x180.jpg"><h6>Batman v Superman Dawn of Justice</h6></div><div class="game"><div class="game-flags"></div><img src="images/games/Batman-Begins-290x180.jpg"><h6>Batman Begins</h6></div><div class="game"><div class="game-flags"><span class="item item-new">New</span></div><img src="images/games/jackpot-giant-290x180.jpg"><h6>Jackpot Giant</h6></div><div class="game"><div class="game-flags"><span class="item item-hot">Hot</span><span class="item item-new">New</span></div><img src="images/games/european-roulette-290x180.jpg"><h6>Premium European Roulette</h6></div><div class="game"><div class="game-flags"></div><img src="images/games/Da-vinci-Vault-290x180.jpg"><h6>Da Vinci’s Vault</h6></div><div class="game"><div class="game-flags"></div><img src="images/games/Murder-Mystery-290x180.jpg"><h6>Murder Mystery</h6></div><div class="game"><div class="game-flags"><span class="item item-new">New</span></div><img src="images/games/PremiumBlackjack-290x180.jpg"><h6>Premium Blackjack</h6></div><div class="game"><div class="game-flags"><span class="item item-hot">Hot</span></div><img src="images/games/Gladiator-road-to-rome-290x180.jpg"><h6>Gladiator 2</h6></div></div>
@@ -196,7 +366,26 @@
     </script>
 
     <script type="text/babel">
-        // Write your code here
+        $('.add-games').on('click', function() {
+            var Game = function(props) {
+                return (
+                    <div className='game'>
+                        <div className="game-flags">
+                            {props.flagHot ? <span className="item item-hot">Hot</span> : ''}
+                            {props.flagNew ? <span className="item item-new">New</span> : ''}
+                        </div>
+                        <img src={props.imageURL} />
+                        <h6>{props.name}</h6>
+                    </div>
+                );
+            };
+
+            var Games = function(props) {
+                return (props.games.map((game, idx) => <Game key={idx} {...game}/>));
+            };
+
+            ReactDOM.render(<Games games={games} />, document.querySelector('#games'));
+        });
     </script>
 
     <style>
@@ -343,7 +532,26 @@
     </script>
 
     <script type="text/babel">
-        // Write your code here
+        $('.add-whores').on('click', function() {
+            var Whore = function(props) {
+                return (
+                    props.whores.map((whore, idx) =>
+                        <div key={idx} className="whore">
+                        <div className="whore-name">{whore.name}</div>
+                        <img src={whore.photo} width="200" />
+                        <div className="whore-age">Возраст: {whore.age}</div>
+                        <div className="whore-boobs">Размер груди: {whore.boobs}</div>
+                        <div className="whore-height">Рост: {whore.height}</div>
+                        <div className="whore-weight">Вес: {whore.weight}</div>
+                        <div className="whore-phone">{whore.phone}</div>
+                        <div className="whore-can-come">Выезд: {whore.can_come ? '+' : '-'}</div>
+                        <div className="whore-teaser">{whore.teaser}</div>
+                    </div>)
+                );
+            };
+
+            ReactDOM.render(<Whore whores={whores} />, document.querySelector('#whores'));
+        });
     </script>
 
     <style>
@@ -666,7 +874,25 @@
     </script>
 
     <script type="text/babel">
-        // Write your code here
+        $('.add-movies').on('click', function() {
+            var Movie = function(props) {
+                return (
+                    <div className="movie">
+                        <div className="movie-image-container">
+                            <a href="#"><img src={"images/movies/"+props.id+".jpg"} /></a>
+                        </div>
+                        <a className="movie-title" href="#">{props.title}</a>
+                        <div className="movie-details"><span>{props.year}</span></div>
+                    </div>
+                );
+            };
+
+            var Movies = function(props) {
+                return (props.movies.map((movie, idx) => <Movie key={idx} {...movie}/>));
+            };
+
+            ReactDOM.render(<Movies movies={movies} />, document.querySelector('#movies'));
+        });
     </script>
 
     <style>
@@ -863,7 +1089,34 @@
     </script>
 
     <script type="text/babel">
-        // Write your code here
+        $('.add-rich').on('click', function() {
+            var Rich = function(props) {
+                return (
+                    <div className="rich">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    {props.rich.headings.map((headings, idx) => <th key={idx}>{headings}</th>)}
+                                </tr>
+
+                                {props.rich.data.map((rich, idx) =>
+                                    <tr key={idx}>
+                                        <td>{rich.position}</td>
+                                        <td>{rich.fio}</td>
+                                        <td>{rich.money}</td>
+                                        <td>{rich.sourceOfFunds}</td>
+                                        <td>{rich.age}</td>
+                                        <td>{rich.country}</td>
+                                    </tr>
+                                )}
+                            </tbody>
+                        </table>
+                    </div>
+                );
+            };
+
+            ReactDOM.render(<Rich rich={rich} />, document.querySelector('#rich'));
+        });
     </script>
 
     <style>
