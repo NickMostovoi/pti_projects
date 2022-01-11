@@ -145,4 +145,4 @@ var config = {
 // var port2 = config.port;
 // var dbName = config.dbName !== undefined ? config.dbName : 'default' ;
 
-var {host, port: port2, dbName = dbName !== undefined ? dbName : 'def' } = config;
+var {host, port: port2, dbName = 'default' } = config;
