@@ -433,45 +433,54 @@
 
     <script type="text/babel">
         class TaskChangeColor extends React.Component {
-            changeColor = () => {
+            onClick = () => {
                 this.setState({
                     color: 'red'
                 });
             };
 
             state = {
-                color: null
+                color: 'green'
             };
 
             render() {
+                const {onClick} = this;
+                const style = {
+                    color: this.state.color
+                };
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить цвет текста</p>
-                        <p className="t t1" style={this.state}>Тест</p>
-                        <button className="b b1" onClick={this.changeColor}>Изменить цвет текста</button>
+                        <p className="t t1" style={style}>Тест</p>
+                        <button className="b b1" onClick={onClick}>Изменить цвет текста</button>
                     </>
                 );
             }
         }
 
         class TaskChangeBackgroundColor extends React.Component {
-            changeBackground = () => {
+            onClick = () => {
                 this.setState({
                     backgroundColor: 'red'
                 });
             };
 
             state = {
-                backgroundColor: null
+                backgroundColor: 'yellow'
             };
 
             render() {
-                const {state} = this;
+                const {onClick} = this;
+                const style = {
+                    backgroundColor: this.state.backgroundColor
+                };
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить цвет фона</p>
-                        <p className="t t2" style={state}>Тест</p>
-                        <button className="b b2" onClick={this.changeBackground}>Изменить цвет фона</button>
+                        <p className="t t2" style={style}>Тест</p>
+                        <button className="b b2" onClick={onClick}>Изменить цвет фона</button>
                     </>
                 );
             }
@@ -490,6 +499,7 @@
 
             render() {
                 const {href} = this.state;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить путь ссылки</p>
@@ -514,6 +524,7 @@
             render() {
                 const {changeSrc} = this;
                 const {src} = this.state;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить путь к картинке</p>
@@ -538,6 +549,7 @@
             render() {
                 const {changeId} = this;
                 const {id} = this.state;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить id элемента</p>
@@ -562,6 +574,7 @@
             render() {
                 const {changeText} = this;
                 const {innerText} = this.state;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить текст</p>
@@ -575,19 +588,21 @@
         class TaskChangeHtml extends React.Component {
             changeHtml = () => {
                 this.setState({
-                    html: <>We can change <a href="#"><b>HTML</b></a></>
+                    html: 'Beautiful <a href="#">Цветы</a>'
                 });
             };
 
             state = {
-                html: <>Тест <b>Цветы</b></>
+                html: 'Тест <b>Цветы</b>'
             };
 
             render() {
+                const {html} = this.state;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить HTML</p>
-                        <p className="t t7">{this.state.html}</p>
+                        <p className="t t7" dangerouslySetInnerHTML={{__html: html}}></p>
                         <button className="b b7" onClick={this.changeHtml}>Изменить HTML</button>
                     </>
                 );
@@ -602,14 +617,18 @@
             };
 
             state = {
-                fontSize: null
+                fontSize: '16px'
             };
 
             render() {
+                const style = {
+                    fontSize: this.state.fontSize
+                };
+
                 return (
                     <>
                         <p className="z">При клике на кнопку изменить размер шрифта</p>
-                        <p className="t t8" style={this.state}>Тест</p>
+                        <p className="t t8" style={style}>Тест</p>
                         <button className="b b8" onClick={this.changeFontSize}>Изменить размер шрифта</button>
                     </>
                 );
@@ -617,7 +636,7 @@
         }
 
         class TaskChangeAddClass extends React.Component {
-            changeAddClass = () => {
+            addClass = () => {
                 this.setState({
                     className: 't t9 hi'
                 });
@@ -632,14 +651,14 @@
                     <>
                         <p className="z">При клике на кнопку добавить класс 'hi'</p>
                         <p className={this.state.className}>Тест</p>
-                        <button className="b b9" onClick={this.changeAddClass}>Добавить класс 'hi'</button>
+                        <button className="b b9" onClick={this.addClass}>Добавить класс 'hi'</button>
                     </>
                 );
             }
         }
 
         class TaskChangeRemoveClass extends React.Component {
-            changeRemoveClass = () => {
+            removeClass = () => {
                 this.setState({
                     className: 't t10'
                 });
@@ -650,13 +669,14 @@
             };
 
             render() {
-                const {changeRemoveClass} = this;
+                const {removeClass} = this;
                 const {className} = this.state;
+
                 return (
                     <>
                         <p className="z">При клике на кнопку удалить класс 'hi'</p>
                         <p className={className}>Тест</p>
-                        <button className="b b10" onClick={changeRemoveClass}>Удалить класс 'hi'</button>
+                        <button className="b b10" onClick={removeClass}>Удалить класс 'hi'</button>
                     </>
                 );
             }
@@ -664,20 +684,23 @@
 
         class TaskChangeToggleClass extends React.Component {
             changeToggleClass = () => {
-                this.setState({
-                    className: this.state.className === 't t11' ? 't t11 hi' : 't t11'
-                });
+                this.setState((state) => ({
+                    hasClass: !state.hasClass
+                }));
             };
 
             state = {
-                className: 't t11'
+                hasClass: false
             };
 
             render() {
+                const {hasClass} = this.state;
+                const className = hasClass ? 't t11 hi' : 't t11';
+
                 return (
                     <>
                         <p className="z">При клике на кнопку добавлять/удалять (в зависимости от наличия) класс 'hi'</p>
-                        <p className={this.state.className}>Тест</p>
+                        <p className={className}>Тест</p>
                         <button className="b b11" onClick={this.changeToggleClass}>Добавить/удалить (в зависимости от наличия) класс 'hi'</button>
                     </>
                 );
@@ -685,26 +708,25 @@
         }
 
         class TaskShowClass extends React.Component {
-            constructor(props) {
-                super(props);
+            componentDidMount() {
                 document.addEventListener('click', this.onClickShowClass);
-            };
+            }
 
             onClickShowClass = (e) => {
                 this.setState({
-                    showClass: e.target.className
+                    className: e.target.className
                 });
             };
 
             state = {
-                showClass: 'Тест'
+                className: 'Тест'
             };
 
             render() {
                 return (
                     <>
                         <p className="z">При клике на любом элементе страницы выводить значение атрибута class элемента</p>
-                        <p className="t t12">{this.state.showClass}</p>
+                        <p className="t t12">{this.state.className}</p>
                     </>
                 );
             }
@@ -724,23 +746,20 @@
         }
 
         class TaskChangeBackgroundColorOnResize extends React.Component {
-            constructor(props) {
-                super(props);
+            componentDidMount() {
                 window.addEventListener('resize', this.onResize);
             };
 
             onResize = () => {
-                this.setState({
-                    backgroundColor: this.changeBackgroundColor()
-                });
-            };
-
-            changeBackgroundColor = () => {
                 const round = Math.round, random = Math.random, num = 255;
                 const r = round(random()*num);
                 const g = round(random()*num);
                 const b = round(random()*num);
-                return 'rgb('+r+', '+g+', '+b+')';
+                const backgroundColor = `rgb(${r}, ${g}, ${b})`;
+
+                this.setState({
+                    backgroundColor
+                });
             };
 
             state = {
@@ -748,10 +767,14 @@
             };
 
             render() {
+                const style = {
+                    backgroundColor: this.state.backgroundColor
+                };
+
                 return (
                     <>
                         <p className="z">При изменении размеров окна вкладки или браузера изменять фоновый цвет абзаца (использовать RGB и Math.random)</p>
-                        <p className="t t99" style={this.state}>Drugs are bad, m'kay, so, if you do drugs, you're bad, m'kay, because drugs are bad.</p>
+                        <p className="t t99" style={style}>Drugs are bad, m'kay, so, if you do drugs, you're bad, m'kay, because drugs are bad.</p>
                     </>
                 );
             }
@@ -760,22 +783,21 @@
         class TaskInputWithCounter extends React.Component {
             inputChanges = (e) => {
                 this.setState({
-                    counter: e.target.value.length,
-                    defValue: e.target.value
+                    text: e.target.value
                 });
             };
 
             state = {
-                counter: 24,
-                defValue: 'Я не касался писи козла!'
+                text: 'Я не касался писи козла!'
             };
 
             render() {
-                const {counter, defValue} = this.state;
+                const {text} = this.state;
+
                 return (
                     <>
                         <p className="z">При изменении значения элемента формы выводить количество символов которое оно содержит</p>
-                        <p className="t t98"><input type="text" value={defValue} onChange={this.inputChanges}/> <span className="t98-2">{counter}</span></p>
+                        <p className="t t98"><input type="text" value={text} onChange={this.inputChanges} /> <span className="t98-2">{text.length}</span></p>
                     </>
                 );
             }
@@ -783,18 +805,21 @@
 
         class TaskWhores extends React.Component {
             onClick = () => {
-                this.setState({
-                    showWhore: true
-                });
+                this.setState((state) => ({
+                    whores: [
+                        ...state.whores,
+                        jasmine
+                    ]
+                }));
             };
 
             state = {
-                jasmine: jasmine,
-                showWhore: false
+                whores: []
             };
 
             render() {
-                const {jasmine, showWhore} = this.state;
+                const {whores} = this.state;
+
                 return (
                     <>
                         <p className="z">Вывести на экран анкету Жасмин используя переменную jasmine (смотри исходный код)</p>
@@ -817,17 +842,21 @@
                                 </div>
                             </div>
 
-                            {showWhore && <div className="whore">
-                                <div className="whore-name">{jasmine.name}</div>
-                                <img src={jasmine.photo} width="200"/>
-                                <div className="whore-age">Возраст: {jasmine.age}</div>
-                                <div className="whore-boobs">Размер груди: {jasmine.boobs}</div>
-                                <div className="whore-height">Рост: {jasmine.height}</div>
-                                <div className="whore-weight">Вес: {jasmine.weight}</div>
-                                <div className="whore-phone">{jasmine.phone}</div>
-                                <div className="whore-can-come">Выезд: {jasmine.can_come ? '+' : '-'}</div>
-                                <div className="whore-teaser">{jasmine.teaser}</div>
-                            </div>}
+                            {
+                                whores.map((whore, idx) => (
+                                    <div className="whore">
+                                        <div className="whore-name">{whore.name}</div>
+                                        <img src={whore.photo} width="200"/>
+                                        <div className="whore-age">Возраст: {whore.age}</div>
+                                        <div className="whore-boobs">Размер груди: {whore.boobs}</div>
+                                        <div className="whore-height">Рост: {whore.height}</div>
+                                        <div className="whore-weight">Вес: {whore.weight}</div>
+                                        <div className="whore-phone">{whore.phone}</div>
+                                        <div className="whore-can-come">Выезд: {whore.can_come ? '+' : '-'}</div>
+                                        <div className="whore-teaser">{whore.teaser}</div>
+                                    </div>
+                                ))
+                            }
 
                         </div>
 
@@ -839,15 +868,13 @@
 
         class TaskFish extends React.Component {
             onClick = () => {
-                this.setState({
-                    container1: !this.state.container1,
-                    container2: !this.state.container2
-                });
+                this.setState((state) => ({
+                    container1: !state.container1
+                }));
             };
 
             state = {
-                container1: true,
-                container2: false
+                container1: true
             };
 
             render() {
@@ -863,7 +890,7 @@
 
                             <div className="cat-container-2">
                                 <img className="cat" src="images/kat.png" width="100" />
-                                {this.state.container2 && <img className="fish" src="images/fish.jpg" width="100" />}
+                                {!this.state.container1 && <img className="fish" src="images/fish.jpg" width="100" />}
                             </div>
                         </div>
 
@@ -876,22 +903,23 @@
         class TaskTooth extends React.Component {
             onRemove = () => {
                 this.setState({
-                    remove: false
+                    hasTooth: false
                 });
             };
 
             state = {
-                remove: true
+                hasTooth: true
             };
 
             render() {
-                const {remove} = this.state;
+                const {hasTooth} = this.state;
+
                 return (
                     <>
                         <p className="z">Удалить зуб</p>
 
                         <div className="tooth-container">
-                            {remove && <img className="tooth" src="images/tooth.jpg" width="200" />}
+                            {hasTooth && <img className="tooth" src="images/tooth.jpg" width="200" />}
                             <img className="boy" src="images/bro.jpg" width="600" />
                         </div>
 
@@ -902,11 +930,10 @@
         }
 
         class TaskSkier extends React.Component {
-            intereval = () => {
-                this.setState({
-                    x: this.state.x + 5,
-                    left: this.state.x + 'px'
-                });
+            move = () => {
+                this.setState((state) => ({
+                    x: state.x + 5
+                }));
             };
 
             state = {
@@ -914,20 +941,24 @@
             };
 
             onClickStart = () => {
-                this.interevalId = setInterval(this.intereval, 16)
+                this.interevalId = setInterval(this.move, 16);
             };
 
             onClickStop = () => {
-                clearInterval(this.interevalId)
+                clearInterval(this.interevalId);
             };
 
             render() {
+                const style = {
+                    left: this.state.x + 'px'
+                };
+
                 return (
                     <>
                         <p className="z">Хочу чтоб лыжник бесконечно ехал вправо (сдвиг на 5px каждые 16ms). При нажатии на кнопку "Стоп!" останавливался.</p>
 
                         <div className="ski-resort">
-                            <img className="skier" src="images/skier.gif" style={this.state} />
+                            <img className="skier" src="images/skier.gif" style={style} />
                         </div>
 
                         <button className="b b17" onClick={this.onClickStart}>Поехали!</button>
@@ -938,27 +969,19 @@
         }
 
         class TaskMikki extends React.Component {
-            onClick = () => {
-                this.setState({
-                    mikki: this.mikkiFunc()
-                });
-            };
+            getMikki = () => {
+                var tiles = [];
 
-            state = {
-                mikki: null
-            };
-
-            mikkiFunc = () => {
                 for (var i = 0; i < mikki.length; i++) {
                     for (var j = 0; j < mikki[i].length; j++) {
-                        var tile = document.createElement('span');
-                        tile.classList.add('mikki_tile');
-                        if (mikki[i][j] === 'X') {
-                            tile.style.backgroundColor = '#000';
-                        }
-                        document.querySelector('.mikki_tiles').appendChild(tile);
+                        let style = {
+                            backgroundColor: mikki[i][j] === 'X' ? '#000' : null
+                        };
+                        tiles.push(<span className="mikki_tile" style={style}></span>);
                     }
                 }
+
+                return tiles;
             };
 
             render() {
@@ -966,12 +989,13 @@
                     <>
                         <p className="z">Хочу такое (смотри исходный код) <img src="images/mikki.png" /></p>
 
-                        <div className="mikki_tiles" onClick={this.onClick}>{this.state.mikki}</div>
+                        <div className="mikki_tiles">{this.getMikki()}</div>
                     </>
                 );
             }
         }
 
+        //TODO:
         class TaskMario extends React.Component {
             onClick = () => {
                 this.setState({
@@ -1034,40 +1058,41 @@
 
         class TaskSlider extends React.Component {
             onClickNext = () => {
-                this.setState({
-                    activeSlide: this.state.activeSlide === this.slides.length - 1 ? 1 : this.state.activeSlide + 1
-                });
+                this.setState((state) => ({
+                    activeSlide: state.activeSlide === this.slides.length - 1 ? 0 : state.activeSlide + 1
+                }));
             };
 
             onClickPrev = () => {
-                this.setState({
-                    activeSlide: this.state.activeSlide === 1 ? this.slides.length - 1 : this.state.activeSlide - 1
-                });
+                this.setState((state) => ({
+                    activeSlide: state.activeSlide === 0 ? this.slides.length - 1 : state.activeSlide - 1
+                }));
             };
 
             slides = [
-                {name: 1, src: 'images/slide1.jpg'},
-                {name: 2, src: 'images/slide2.jpg'},
-                {name: 3, src: 'images/slide3.jpg'},
-                {name: 4, src: 'images/slide4.jpg'},
-                {name: 5, src: 'images/slide5.jpg'}
+                {src: 'images/slide1.jpg'},
+                {src: 'images/slide2.jpg'},
+                {src: 'images/slide3.jpg'},
+                {src: 'images/slide4.jpg'},
+                {src: 'images/slide5.jpg'}
             ];
 
             state = {
-                activeSlide: 1
+                activeSlide: 0
             };
 
             render() {
                 const {activeSlide} = this.state;
+
                 return (
                     <>
                         <p className="z">Кликая по кнопкам "предыдущая" и "следующая" я хочу чтобы менялись соответственно слайды</p>
 
                         <div className="slider">
                             {
-                                this.slides.map((slide) => {
-                                    const className = activeSlide === slide.name ? 'slide active' : 'slide';
-                                    return <img key={slide.name} src={slide.src} className={className} />;
+                                this.slides.map((slide, idx) => {
+                                    const className = activeSlide === idx ? 'slide active' : 'slide';
+                                    return <img src={slide.src} className={className} />;
                                 })
                             }
                         </div>
@@ -1082,34 +1107,33 @@
         }
 
         class TaskFaq extends React.Component {
-            onClick = (e) => {
-                if (e.target.className === 'question') {
-                    e.target.className = 'question active'
-                } else {
-                    e.target.className = 'question'
-                }
+            toggleQuestion = (idx) => {
+                this.setState((state) => ({
+                    activeQuestion: state.activeQuestion === idx ? null : idx
+                }));
+            };
+
+            state = {
+                activeQuestion: null
             };
 
             content = [
                 {
-                    name: 'question1',
-                    question: <>В чем разница между 32-разрядной и 64-разрядной версиями Windows?</>,
-                    answer: <>Термины "32-разрядный" и "64-разрядный" описывают, каким образом процессор компьютера
+                    question: `В чем разница между 32-разрядной и 64-разрядной версиями Windows?`,
+                    answer: `Термины "32-разрядный" и "64-разрядный" описывают, каким образом процессор компьютера
                               (он также называется ЦП) обрабатывает информацию. 64-разрядная версия Windows
                               обрабатывает большие объемы оперативной памяти (ОЗУ) более эффективно по сравнению с
                               32-разрядной версией. Не все устройства могут работать под управлением 64-разрядных
-                              версий Windows.</>
+                              версий Windows.`
                 },
                 {
-                    name: 'question2',
-                    question: <>Моя копия Windows приобретена через учебное заведение. Можно ли скачать ее здесь?</>,
-                    answer: <>Да, но вам потребуется ключ продукта. Перейдите на страницу загрузок <b>Академические продукты</b>
-                              и выберите версию Windows, чтобы начать.</>
+                    question: `Моя копия Windows приобретена через учебное заведение. Можно ли скачать ее здесь?`,
+                    answer: `Да, но вам потребуется ключ продукта. Перейдите на страницу загрузок <b>Академические продукты</b>
+                              и выберите версию Windows, чтобы начать.`
                 },
                 {
-                    name: 'question3',
-                    question: <>Что делать после создания носителя с помощью средства создания носителя?</>,
-                    answer: <><p>Чтобы установить Windows, после создания установочного носителя выполните одно из следующих действий:</p>
+                    question: `Что делать после создания носителя с помощью средства создания носителя?`,
+                    answer: `<p>Чтобы установить Windows, после создания установочного носителя выполните одно из следующих действий:</p>
 
                         <ul>
                             <li>
@@ -1127,28 +1151,32 @@
                                 компьютер, перезагрузите компьютер, а затем следуйте инструкциям по установке.
                             </li>
                         </ul>
-                    </>
+                    `
                 },
                 {
-                    name: 'question4',
-                    question: <>Этот образ диска загрузочный?</>,
-                    answer: <>Образ диска с этого сайта можно использовать для создания загрузочных USB-носителей и
-                              DVD-дисков, которые предоставляют доступ к средствам восстановления.</>
+                    question: `Этот образ диска загрузочный?`,
+                    answer: `Образ диска с этого сайта можно использовать для создания загрузочных USB-носителей и
+                              DVD-дисков, которые предоставляют доступ к средствам восстановления.`
                 },
             ];
 
             render() {
+                const {activeQuestion} = this.state;
+                const {toggleQuestion} = this;
+
                 return (
                     <>
                         <p className="z">Кликая вопросам я хочу видеть ответы на них</p>
 
                         <dl className="faq">
                             {
-                                this.content.map((item) => {
-                                    return <>
-                                        <dt key={item.name} className="question" onClick={this.onClick}>{item.question}</dt>
-                                        <dd key={item.name} className="answer">{item.answer}</dd>
-                                    </>
+                                this.content.map((item, idx) => {
+                                    return (
+                                        <>
+                                            <dt className={`question ${activeQuestion === idx ? 'active' : ''}`} onClick={() => {toggleQuestion(idx)}}>{item.question}</dt>
+                                            <dd className="answer" dangerouslySetInnerHTML={{__html: item.answer}} />
+                                        </>
+                                    );
                                 })
                             }
                         </dl>
@@ -1160,54 +1188,50 @@
         class TaskTabs extends React.Component {
             onClick = (e) => {
                 this.setState({
-                    activeButton: e.target.dataset.tab,
                     activeTab: e.target.dataset.tab
                 });
             };
 
             state = {
-                activeButton: 'today',
                 activeTab: 'today'
             };
 
-            content = [
+            items = [
                 {
-                    name: 'today',
+                    tab: 'today',
+                    title: 'Сегодня',
                     content:
-                        <ul>
+                        `<ul>
                             <li>Звёздные войны: Последние джедаи</li>
                             <li>Счастливый день смерти</li>
                             <li>Дыши</li>
-                        </ul>
+                        </ul>`
                 },
                 {
-                    name: 'tomorrow',
+                    tab: 'tomorrow',
+                    title: 'Завтра',
                     content:
-                        <ul>
+                        `<ul>
                             <li>Киборги</li>
                             <li>Земля троллей</li>
                             <li>За пропастью во ржи</li>
-                        </ul>
+                        </ul>`
                 },
                 {
-                    name: '23d',
+                    tab: '23d',
+                    title: '23 декабря',
                     content:
-                        <ul>
+                        `<ul>
                             <li>Мой любимый динозавр</li>
                             <li>Фердинанд</li>
                             <li>Джуманджи: Зов джунглей</li>
-                        </ul>
+                        </ul>`
                 }
             ];
 
-            tabs = [
-                {name: 'today', text: 'Сегодня'},
-                {name: 'tomorrow', text: 'Завтра'},
-                {name: '23d', text: '23 декабря'}
-            ];
-
             render() {
-                const {activeButton, activeTab} = this.state;
+                const {activeTab} = this.state;
+
                 return (
                     <>
                         <p className="z">Кликая по вкладкам я хочу видеть связанное содержимое</p>
@@ -1216,18 +1240,18 @@
 
                         <div className="tabs">
                             {
-                                this.tabs.map((tab) => {
-                                    const className = activeTab === tab.name ? 'item active' : 'item';
-                                    return <div key={tab.name} className={className} data-tab={tab.name} onClick={this.onClick}>{tab.text}</div>;
+                                this.items.map((item) => {
+                                    const className = activeTab === item.tab ? 'item active' : 'item';
+                                    return <div className={className} data-tab={item.tab} onClick={this.onClick}>{item.title}</div>;
                                 })
                             }
                         </div>
 
                         <div className="tabs-content">
                             {
-                                this.content.map((button) => {
-                                    const className = activeButton === button.name ? 'item active' : 'item';
-                                    return <div key={button.name} className={className} data-tab={button.name}>{button.content}</div>;
+                                this.items.map((item) => {
+                                    const className = activeTab === item.tab ? 'item active' : 'item';
+                                    return <div className={className}>{item.content}</div>;//TODO:
                                 })
                             }
                         </div>
@@ -1237,16 +1261,14 @@
         }
 
         class TaskPopUp extends React.Component {
-            showAndHidePopUp = () => {
-                this.setState({
-                    overlay: this.state.overlay === 'overlay hidden' ? 'overlay' : 'overlay hidden',
-                    popUp: this.state.popUp === 'pop-up pop-up--login hidden' ? 'pop-up pop-up--login' : 'pop-up pop-up--login hidden'
-                });
+            togglePopUp = () => {
+                this.setState((state) => ({
+                    showPopUp: !state.showPopUp
+                }));
             };
 
             state = {
-                overlay: 'overlay hidden',
-                popUp: 'pop-up pop-up--login hidden'
+                showPopUp: false
             };
 
             render() {
@@ -1254,28 +1276,35 @@
                     <>
                         <p className="z">Кликая на кнопку Login я хочу чтобы затенялся экран и по середине экрана появлялось окошко для авторизации закрыть которое можно кликнув по кнопке с крестиком</p>
 
-                        <div className={this.state.overlay}></div>
-                        <div className={this.state.popUp}>
-                            <button className="close" onClick={this.showAndHidePopUp}>x</button>
-                            <input type="text" placeholder="Username" />
-                            <input type="password" placeholder="Password" />
-                            <button className="login">Login</button>
-                        </div>
+                        {
+                            this.state.showPopUp ?
+                                <>
+                                    <div className='overlay'></div>
+                                    <div className='pop-up pop-up--login'>
+                                        <button className="close" onClick={this.togglePopUp}>x</button>
+                                        <input type="text" placeholder="Username" />
+                                        <input type="password" placeholder="Password" />
+                                        <button className="login">Login</button>
+                                    </div>
+                                </> :
+                                null
+                        }
 
-                        <button className="show-login-pop-up" onClick={this.showAndHidePopUp}>Login</button>
+                        <button className="show-login-pop-up" onClick={this.togglePopUp}>Login</button>
                     </>
                 );
             }
         }
 
         class TaskLink extends React.Component {
-            link = (e) => e.preventDefault();
+            onClick = (e) => e.preventDefault();
+
             render() {
                 return (
                     <>
                         <p className="z">Отменить действие по-умолчанию при клике на ссылку</p>
 
-                        <p><a href="https://ebanoe.it/" className="link-ebanoe" target="_blank" onClick={this.link}>Ebanoe.IT — голая правда о нашем айти</a></p>
+                        <p><a href="https://ebanoe.it/" className="link-ebanoe" target="_blank" onClick={this.onClick}>Ebanoe.IT — голая правда о нашем айти</a></p>
                     </>
                 );
             }
@@ -1284,30 +1313,31 @@
         class TaskAd extends React.Component {
             hideSpam = () => {
                 this.setState({
-                    display: 'none'
+                    showSpam: false
                 });
+
                 localStorage.setItem('spam', 'hidden');
             };
 
             state = {
-                display: null
+                showSpam: true
             };
 
-            showSpam = () => {
-                if (localStorage.getItem('spam') !== 'hidden') {
-                    return (
-                        <>
-                            <p className="z">Надоела реклама про увеличение члена? При клике на кнопку "Больше не показывать" заноси в localStorage значение которое будешь проверять при загрузке страницы</p>
-                            <p className="t t97" style={this.state}>Хочешь увеличить член? Заходи <a href="http://pornhub.com" target="_blank">сюда</a>! <button className="b97" onClick={this.hideSpam}>Больше не показывать</button></p>
-                        </>
-                    );
-                }
-            };
+            componentDidMount() {
+                this.setState({
+                    showSpam: localStorage.getItem('spam') !== 'hidden'
+                });
+            }
 
             render() {
+                const style = {
+                    display: this.state.showSpam ? 'block' : 'none'
+                };
+
                 return (
                     <>
-                        {this.showSpam()}
+                        <p className="z">Надоела реклама про увеличение члена? При клике на кнопку "Больше не показывать" заноси в localStorage значение которое будешь проверять при загрузке страницы</p>
+                        <p className="t t97" style={style}>Хочешь увеличить член? Заходи <a href="http://pornhub.com" target="_blank">сюда</a>! <button className="b97" onClick={this.hideSpam}>Больше не показывать</button></p>
                     </>
                 );
             }
