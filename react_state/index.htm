@@ -995,60 +995,67 @@
             }
         }
 
-        //TODO:
         class TaskMario extends React.Component {
+            getMario = () => {
+                var tiles = [];
+
+                for (var i = 0; i < map.length; i++) {
+                    for (var j = 0; j < map[i].length; j++) {
+                        let style = {
+                            top: i * 16 + 'px',
+                            left: j * 16 + 'px'
+                        };
+
+                        if (map[i][j] === 'w') {
+                            tiles.push(<span className="tile x_w" style={style} />);
+                        }
+                        if (map[i][j] === 'c') {
+                            tiles.push(<span className="tile x_c" style={style} />);
+                        }
+                        if (map[i][j] === 'k') {
+                            tiles.push(<span className="tile x_k" style={style} />);
+                        }
+                        if (map[i][j] === 'b') {
+                            tiles.push(<span className="tile x_b" style={style} />);
+                        }
+                        if (map[i][j] === 't') {
+                            tiles.push(<span className="tile x_t" style={style} />);
+                        }
+                        if (map[i][j] === 'd') {
+                            tiles.push(<span className="tile x_d" style={style} />);
+                        }
+                        if (map[i][j] === 'g') {
+                            tiles.push(<span className="tile x_g" style={style} />);
+                        }
+                        if (map[i][j] === 'z') {
+                            tiles.push(<span className="tile x_z" style={style} />);
+                        }
+
+                        tiles.push(<span className="tile" style={style} />);
+                    }
+                }
+
+                return tiles;
+            };
+
             onClick = () => {
                 this.setState({
-                    mikki: this.marioWorld()
+                    showMarioWorld: true
                 });
             };
 
             state = {
-                marioWorld: null
-            };
-
-            marioWorld = () => {
-                for (var i = 0; i < map.length; i++) {
-                    for (var j = 0; j < map[i].length; j++) {
-                        var tile = document.createElement('span');
-                        tile.classList.add('tile');
-                        tile.style.top = i * 16 + 'px';
-                        tile.style.left = j * 16 + 'px';
-                        if (map[i][j] === 'w') {
-                            tile.classList.add('x_w');
-                        }
-                        if (map[i][j] === 'c') {
-                            tile.classList.add('x_c');
-                        }
-                        if (map[i][j] === 'k') {
-                            tile.classList.add('x_k');
-                        }
-                        if (map[i][j] === 'b') {
-                            tile.classList.add('x_b');
-                        }
-                        if (map[i][j] === 't') {
-                            tile.classList.add('x_t');
-                        }
-                        if (map[i][j] === 'd') {
-                            tile.classList.add('x_d');
-                        }
-                        if (map[i][j] === 'g') {
-                            tile.classList.add('x_g');
-                        }
-                        if (map[i][j] === 'z') {
-                            tile.classList.add('x_z');
-                        }
-                        document.querySelector('.scene').appendChild(tile);
-                    }
-                }
+                showMarioWorld: false
             };
 
             render() {
+                const {showMarioWorld} = this.state;
+
                 return (
                     <>
                         <p className="z">Создать мир Марио <img src="images/mario.png" /></p>
 
-                        <div className="scene">{this.state.marioWorld}</div>
+                        <div className="scene">{showMarioWorld && this.getMario()}</div>
 
                         <button className="b b18" onClick={this.onClick}>Создать мир</button>
                     </>
@@ -1251,7 +1258,7 @@
                             {
                                 this.items.map((item) => {
                                     const className = activeTab === item.tab ? 'item active' : 'item';
-                                    return <div className={className}>{item.content}</div>;//TODO:
+                                    return <div className={className} dangerouslySetInnerHTML={{__html: item.content}} />;
                                 })
                             }
                         </div>
