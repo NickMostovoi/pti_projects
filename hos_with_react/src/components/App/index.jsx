@@ -12,7 +12,6 @@ class App extends React.Component {
     state = {
         whores: JSON.parse(localStorage.getItem('whores')) || [],
         showAddForm: false,
-        showEditForm: false,
         activeWhoreId: null
     };
 
@@ -50,7 +49,6 @@ class App extends React.Component {
                 age: this.state.age,
                 price: this.state.price
             } : whore ),
-            showEditForm: false,
             activeWhoreId: null
         }));
     };
@@ -58,7 +56,6 @@ class App extends React.Component {
     onRemove = () => {
         this.setState((state) => ({
             whores: state.whores.filter((whore) => whore.id !== this.state.activeWhoreId),
-            showEditForm: false,
             activeWhoreId: null
         }));
     };
@@ -66,14 +63,12 @@ class App extends React.Component {
     onClickAdd = () => {
         this.setState({
             showAddForm: true,
-            showEditForm: false,
             activeWhoreId: null
         });
     };
 
     clickOnWhore = (e) => {
         this.setState({
-            showEditForm: true,
             showAddForm: false,
             activeWhoreId: e.target.dataset.id
         });
