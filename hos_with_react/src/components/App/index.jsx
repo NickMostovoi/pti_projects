@@ -1,13 +1,19 @@
 import React from 'react';
 
-import {AddForm, EditForm} from '../Form';
+import Whore from '../Whore';
+import Form from '../Form';
 
-class Whore extends React.Component {
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        window.aaa = this;
+    }
+
     state = {
         whores: JSON.parse(localStorage.getItem('whores')) || [],
         showAddForm: false,
         showEditForm: false,
-        activeWhoreId: 'id'
+        activeWhoreId: null
     };
 
     handleChange = (e) => {
@@ -44,14 +50,16 @@ class Whore extends React.Component {
                 age: this.state.age,
                 price: this.state.price
             } : whore ),
-            showEditForm: false
+            showEditForm: false,
+            activeWhoreId: null
         }));
     };
 
     onRemove = () => {
         this.setState((state) => ({
             whores: state.whores.filter((whore) => whore.id !== this.state.activeWhoreId),
-            showEditForm: false
+            showEditForm: false,
+            activeWhoreId: null
         }));
     };
 
@@ -59,6 +67,7 @@ class Whore extends React.Component {
         this.setState({
             showAddForm: true,
             showEditForm: false,
+            activeWhoreId: null
         });
     };
 
@@ -74,43 +83,31 @@ class Whore extends React.Component {
         localStorage.setItem('whores', JSON.stringify(this.state.whores));
         const {whores, activeWhoreId, showAddForm, showEditForm} = this.state;
         const {onUpdate, onRemove, onClickAdd, clickOnWhore, handleChange, onSave} = this;
+        const whore = whores.find((whore) => whore.id === activeWhoreId);
 
         return (
-            <>
+            <div className="mainContainer">
                 <div className="columnLeft" id="listView">
                     <button type="button" className="addButton" onClick={onClickAdd}>Добавить</button>
                     <div className="whoreList">
-                    {
-                        whores.length
-                        ? whores.map((whore, idx) => {
-                            return <div
-                                key={whore.id}
-                                onClick={clickOnWhore}
-                                className="whore"
-                                data-id={whore.id}
-                            >
-                                {whore.pseudonym} {whore.age}, ${whore.price}
-                            </div>;
-                          })
-                        : <div>Шлюх пока нет</div>
-                    }
+                        {
+                            whores.length
+                                ? whores.map((whore, idx) => {
+                                    return <Whore {...whore} key={idx} clickOnWhore={clickOnWhore} />;
+                                })
+                                : <div>Шлюх пока нет</div>
+                        }
                     </div>
                 </div>
 
-                {showAddForm &&
+                {(showAddForm || activeWhoreId) &&
                     <div className="columnRight" id="InfomationForm">
-                        <AddForm onSave={onSave} handleChange={handleChange} />
+                        <Form whore={whore} onSave={onSave} onRemove={onRemove} onUpdate={onUpdate} handleChange={handleChange} />
                     </div>
                 }
-
-                {showEditForm &&
-                    <div className="columnRight" id="InfomationForm">
-                        <EditForm {...this.state} onRemove={onRemove} onUpdate={onUpdate} handleChange={handleChange} />
-                    </div>
-                }
-            </>
-        )
+            </div>
+        );
     }
 }
 
-export default Whore;
+export default App;
