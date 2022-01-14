@@ -27,7 +27,7 @@ const Form = ({onSave, onRemove, onUpdate, handleChange, whore}) => {
     console.log(whore);
 
     return (
-        <form className="form" key={whore.id+'!!!!!!!bullshit'}>
+        <form className="form" key={whore && whore.id+'!!!!!!!bullshit'}>
             {
                 inputs.map((input, idx) => {
                     return <input
