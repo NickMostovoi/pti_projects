@@ -1,7 +1,12 @@
 import React from 'react';
 
-const Form = ({onSave, onRemove, onUpdate, handleChange, whore}) => {
-    const inputs = [
+class Form extends React.Component {
+    constructor(props) {
+        super(props);
+        window.bbb = this;
+    }
+
+    inputs = [
         {
             name: 'name',
             placeholder: 'Имя'
@@ -24,33 +29,35 @@ const Form = ({onSave, onRemove, onUpdate, handleChange, whore}) => {
         }
     ];
 
-    console.log(whore);
+    render() {
+        const {onSave, onUpdate, onRemove, handleChange, whore, stateApp} = this.props;
 
-    return (
-        <form className="form" key={whore && whore.id+'!!!!!!!bullshit'}>
-            {
-                inputs.map((input, idx) => {
-                    return <input
-                        key={idx}
-                        name={input.name}
-                        type="text"
-                        placeholder={input.placeholder}
-                        onChange={handleChange}
-                        defaultValue={whore ? whore[input.name] : ''}
-                    />;
-                })
-            }
+        return (
+            <form className="form" key={whore && whore.id+'!!!!!!!bullshit'}>
+                {
+                    this.inputs.map((input, idx) => {
+                        return <input
+                            key={idx}
+                            name={input.name}
+                            type="text"
+                            placeholder={input.placeholder}
+                            onChange={handleChange}
+                            value={stateApp[input.name]}
+                        />;
+                    })
+                }
 
-            {
-                whore ?
-                    <>
-                        <button type="button" className="deleteButton" onClick={onRemove}>Удалить</button>
-                        <button type="button" className="updateButton" onClick={onUpdate}>Обновить</button>
-                    </> :
-                    <button type="button" className="saveButton" onClick={onSave}>Сохранить</button>
-            }
-        </form>
-    );
+                {
+                    whore ?
+                        <>
+                            <button type="button" className="deleteButton" onClick={onRemove}>Удалить</button>
+                            <button type="button" className="updateButton" onClick={onUpdate}>Обновить</button>
+                        </> :
+                        <button type="button" className="saveButton" onClick={onSave}>Сохранить</button>
+                }
+            </form>
+        );
+    }
 };
 
 export default Form;

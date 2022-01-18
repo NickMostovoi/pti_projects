@@ -11,8 +11,13 @@ class App extends React.Component {
 
     state = {
         whores: JSON.parse(localStorage.getItem('whores')) || [],
-        showAddForm: false,
-        activeWhoreId: null
+        showForm: false,
+        activeWhoreId: null,
+        name: '',
+        surname: '',
+        pseudonym: '',
+        age: '',
+        price: ''
     };
 
     handleChange = (e) => {
@@ -34,7 +39,7 @@ class App extends React.Component {
                     price: this.state.price
                 }
             ],
-            showAddForm: false
+            showForm: false
         }));
     };
 
@@ -62,22 +67,37 @@ class App extends React.Component {
 
     onClickAdd = () => {
         this.setState({
-            showAddForm: true,
-            activeWhoreId: null
+            showForm: true,
+            activeWhoreId: null,
+            name: '',
+            surname: '',
+            pseudonym: '',
+            age: '',
+            price: ''
         });
     };
 
     clickOnWhore = (e) => {
+        const whore = this.state.whores.find((whore) => whore.id === e.target.dataset.id);
+
         this.setState({
-            showAddForm: false,
-            activeWhoreId: e.target.dataset.id
+            showForm: false,
+            activeWhoreId: whore.id,
+            name: whore.name,
+            surname: whore.surname,
+            pseudonym: whore.pseudonym,
+            age: whore.age,
+            price: whore.price
         });
     };
 
-    render() {
+    componentDidUpdate() {
         localStorage.setItem('whores', JSON.stringify(this.state.whores));
-        const {whores, activeWhoreId, showAddForm, showEditForm} = this.state;
-        const {onUpdate, onRemove, onClickAdd, clickOnWhore, handleChange, onSave} = this;
+    }
+
+    render() {
+        const {whores, activeWhoreId, showForm} = this.state;
+        const {onSave, onUpdate, onRemove, onClickAdd, clickOnWhore, handleChange} = this;
         const whore = whores.find((whore) => whore.id === activeWhoreId);
 
         return (
@@ -95,9 +115,9 @@ class App extends React.Component {
                     </div>
                 </div>
 
-                {(showAddForm || activeWhoreId) &&
+                {(showForm || activeWhoreId) &&
                     <div className="columnRight" id="InfomationForm">
-                        <Form whore={whore} onSave={onSave} onRemove={onRemove} onUpdate={onUpdate} handleChange={handleChange} />
+                        <Form stateApp={this.state} whore={whore} onSave={onSave} onRemove={onRemove} onUpdate={onUpdate} handleChange={handleChange} />
                     </div>
                 }
             </div>
