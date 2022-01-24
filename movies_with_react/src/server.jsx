@@ -29,8 +29,8 @@ var server = http.createServer(function(req, res) {
     res.end(JSON.stringify(data));
 });
 
-server.listen('3000', '127.0.0.1', function() {
-    console.log('Server running at http://127.0.0.1:3000/');
+server.listen('3001', '127.0.0.1', function() {
+    console.log('Server running at http://127.0.0.1:3001/');
 });
 
 var games = [

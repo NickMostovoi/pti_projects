@@ -4,8 +4,9 @@
 }
 
 body {
-    background: fixed url(../images/bg.jpg) no-repeat top center;
+    background: fixed url(../public/images/bg.jpg) no-repeat top center;
     font-family: 'Trebuchet MS', sans-serif;
+    overflow-y: scroll;
 }
 
 .app {
@@ -28,6 +29,10 @@ body {
 
 .top-bar .view-type .active {
     background: #15a4fa;
+}
+
+.top-bar .view-type button {
+    margin: 0 3px;
 }
 
 .filters {
@@ -176,6 +181,7 @@ body {
 
 .pagination button {
     cursor: pointer;
+    margin: 0 3px;
 }
 
 .pagination .active {
@@ -201,4 +207,20 @@ body {
     transform: translate(-50%, -50%);
     background: #ccc;
     border: 14px solid #fff;
+}
+
+.popup .close {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: black;
+    color: white;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+.popup .close:hover {
+    background: #912626;
 }
